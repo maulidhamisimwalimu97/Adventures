@@ -1,0 +1,401 @@
+            html, body {
+                margin: 0;
+                padding: 0;
+                overflow-x: hidden;
+            }
+
+            img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+            }
+            html {
+              scroll-behavior: smooth;
+            }
+
+
+            .carousel-item img {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+         .gallery-item {
+             position: relative;
+             overflow: hidden;
+         }
+         .gallery-content {
+             opacity: 0;
+             transition: 0.5s;
+         }
+         .gallery-item:hover .gallery-content {
+             opacity: 1;
+         }
+         .transition {
+             transition: all 0.5s ease-in-out;
+         }
+
+        .gallery-item img {
+            height: 300px;
+            object-fit: cover;
+            width: 100%;
+            border-radius: 10px;
+        }
+
+
+        @media (max-width: 768px) {
+        .gallery-item img {
+            height: 200px;
+        }
+        }
+
+        /* Responsive font sizes */
+    @media (max-width: 991.98px) {
+        .carousel-caption h4, .carousel-caption h5 {
+            font-size: 1.25rem !important;
+            margin-bottom: 0.5rem !important;
+        }
+        .carousel-caption h2 {
+            font-size: 2rem !important;
+            margin-bottom: 1rem !important;
+        }
+        .carousel-caption p {
+            font-size: 1rem !important;
+            margin-bottom: 1rem !important;
+        }
+        .carousel-caption .btn {
+            padding: 0.5rem 1.5rem !important;
+            font-size: 1rem !important;
+        }
+    }
+    @media (max-width: 575.98px) {
+        .carousel-caption h4, .carousel-caption h5 {
+            font-size: 1rem !important;
+            margin-bottom: 0.4rem !important;
+        }
+        .carousel-caption h2 {
+            font-size: 1.5rem !important;
+            margin-bottom: 0.75rem !important;
+        }
+        .carousel-caption p {
+            font-size: 0.9rem !important;
+            margin-bottom: 0.75rem !important;
+        }
+        .carousel-caption .btn {
+            padding: 0.4rem 1.25rem !important;
+            font-size: 0.9rem !important;
+        }
+        .carousel-caption {
+            padding-left: 1rem !important;
+            padding-right: 1rem !important;
+        }
+    }
+
+  /* === CHATBOT ICON === */
+.chatbot-icon {
+    position: fixed;
+    bottom: 90px; /* same height as translator */
+    right: 20px;
+    background-color: #6c757d;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 1001;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* === CHAT WINDOW === */
+.chat-window {
+    display: none;
+    position: fixed;
+    bottom: 160px; /* Above the icon, back-to-top, and translator */
+    right: 20px;
+    width: 320px;
+    max-height: 500px;
+    background-color: #333333;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+}
+
+/* === Chat Window Contents === */
+.chat-window-header {
+    background-color: #6c757d;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+    border-radius: 15px 15px 0 0;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chat-window-body {
+    padding: 10px;
+    overflow-y: auto;
+    height: 350px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.chat-window-footer {
+    display: flex;
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 0 0 15px 15px;
+}
+
+.chat-window-footer input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    margin-right: 5px;
+    font-size: 14px;
+}
+
+.chat-window-footer button {
+    background-color: #6c757d;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* === Chat Messages === */
+.message-container {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+.message-container.user {
+    justify-content: flex-end;
+}
+.message-container.bot {
+    justify-content: flex-start;
+}
+.profile-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.message {
+    padding: 10px 15px;
+    max-width: 70%;
+    border-radius: 20px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+.message.user {
+    background-color: #DCF8C6;
+    color: #000;
+    margin-right: 10px;
+}
+.message.bot {
+    background-color: #ECECEC;
+    color: #000;
+    margin-left: 10px;
+}
+
+/* === Ensure no overlap with back-to-top === */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999; /* under chatbot and WhatsApp */
+}
+
+/* === Responsive Adjustments === */
+@media (max-width: 768px) {
+    .chat-window {
+        width: 90%;
+        right: 5%;
+        bottom: 180px;
+    }
+
+    .chatbot-icon {
+        right: 20px;
+        bottom: 90px;
+    }
+
+    .back-to-top {
+        right: 20px;
+        bottom: 20px;
+    }
+}
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    color: white;
+    border-radius: 50%;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+.whatsapp-float:hover {
+    background-color: #1ebe5d;
+    text-decoration: none;
+}
+
+/* Language Translator Styles */
+.language-translator {
+    position: fixed;
+    bottom: 90px;
+    left: 20px;
+    width: 120px;
+    z-index: 1000;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+}
+
+.selected-language {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    background-color: #ffffff;
+    color: #333;
+    border-radius: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.selected-language:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.selected-language img {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.selected-language span {
+    font-size: 14px;
+    font-weight: 500;
+    flex-grow: 1;
+}
+
+.selected-language i {
+    font-size: 12px;
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+
+.language-options {
+    display: none;
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    list-style: none;
+    padding: 8px 0;
+    margin: 0 0 10px 0;
+    z-index: 1001;
+}
+
+.language-options li {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.language-options li:hover {
+    background-color: #f5f5f5;
+}
+
+.language-options li img {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* Active state when dropdown is open */
+.language-translator.active .selected-language i {
+    transform: rotate(180deg);
+}
+
+.language-translator.active .language-options {
+    display: block;
+}
+
+/* Hide Google Translate default styling */
+body > .skiptranslate {
+    display: none !important;
+}
+
+/* Hide Google Translate elements */
+.goog-te-banner-frame, .goog-te-gadget-icon {
+    display: none !important;
+}
+
+body {
+    top: 0 !important;
+}
+
+/* Hide the language selector that Google adds */
+.goog-te-combo {
+    display: none !important;
+}
+
+/* Fix for iframe that Google adds */
+.goog-te-menu-value {
+    display: none !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .language-translator {
+        bottom: 80px;
+        left: 15px;
+        width: 110px;
+    }
+    
+    .selected-language {
+        padding: 8px 10px;
+    }
+    
+    .selected-language span {
+        font-size: 13px;
+    }
+    
+    .language-options li {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+}
+

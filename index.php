@@ -16,6 +16,8 @@
         <!-- Icon Font Stylesheet -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
 
         <!-- Libraries Stylesheet -->
         <link href="lib/animate/animate.min.css" rel="stylesheet">
@@ -27,98 +29,9 @@
 
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
-        <style>
-            html, body {
-                margin: 0;
-                padding: 0;
-                overflow-x: hidden;
-            }
-
-            img {
-                max-width: 100%;
-                height: auto;
-                display: block;
-            }
-
-            .carousel-item img {
-                width: 100%;
-                height: auto;
-                object-fit: cover;
-            }
-         .gallery-item {
-             position: relative;
-             overflow: hidden;
-         }
-         .gallery-content {
-             opacity: 0;
-             transition: 0.5s;
-         }
-         .gallery-item:hover .gallery-content {
-             opacity: 1;
-         }
-         .transition {
-             transition: all 0.5s ease-in-out;
-         }
-
-        .gallery-item img {
-            height: 300px;
-            object-fit: cover;
-            width: 100%;
-            border-radius: 10px;
-        }
+        <link href="css/new.css" rel="stylesheet">
 
 
-        @media (max-width: 768px) {
-        .gallery-item img {
-            height: 200px;
-        }
-        }
-
-        /* Responsive font sizes */
-    @media (max-width: 991.98px) {
-        .carousel-caption h4, .carousel-caption h5 {
-            font-size: 1.25rem !important;
-            margin-bottom: 0.5rem !important;
-        }
-        .carousel-caption h2 {
-            font-size: 2rem !important;
-            margin-bottom: 1rem !important;
-        }
-        .carousel-caption p {
-            font-size: 1rem !important;
-            margin-bottom: 1rem !important;
-        }
-        .carousel-caption .btn {
-            padding: 0.5rem 1.5rem !important;
-            font-size: 1rem !important;
-        }
-    }
-    @media (max-width: 575.98px) {
-        .carousel-caption h4, .carousel-caption h5 {
-            font-size: 1rem !important;
-            margin-bottom: 0.4rem !important;
-        }
-        .carousel-caption h2 {
-            font-size: 1.5rem !important;
-            margin-bottom: 0.75rem !important;
-        }
-        .carousel-caption p {
-            font-size: 0.9rem !important;
-            margin-bottom: 0.75rem !important;
-        }
-        .carousel-caption .btn {
-            padding: 0.4rem 1.25rem !important;
-            font-size: 0.9rem !important;
-        }
-        .carousel-caption {
-            padding-left: 1rem !important;
-            padding-right: 1rem !important;
-        }
-    }
-
-
-
-        </style>
     </head>
 
     <body>
@@ -148,20 +61,11 @@
                         <a href="index.html" class="nav-item nav-link active">Home</a>
                         <a href="about.html" class="nav-item nav-link">About</a>
                         <a href="service.html" class="nav-item nav-link">Service</a>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link" data-bs-toggle="dropdown"><span class="dropdown-toggle">Pages</span></a>
-                            <div class="dropdown-menu m-0">
-                                <a href="feature.html" class="dropdown-item">Feature</a>
-                                <a href="countries.html" class="dropdown-item">Countries</a>
-                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                                <a href="training.html" class="dropdown-item">Training</a>
-                                <a href="404.html" class="dropdown-item">404 Page</a>
-                            </div>
-                        </div>
+                        <a href="gallery.php" class="nav-item nav-link">Gallery</a>
                         <a href="contact.html" class="nav-item nav-link">Contact</a>
                     </div>
                     <button class="btn btn-primary btn-md-square border-secondary mb-3 mb-md-3 mb-lg-0 me-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
-                    <a href="" class="btn btn-primary border-secondary rounded-pill py-2 px-4 px-lg-3 mb-3 mb-md-3 mb-lg-0">Get A Quote</a>
+                    <a href="#booking" class="btn btn-primary border-secondary rounded-pill py-2 px-4 px-lg-3 mb-3 mb-md-3 mb-lg-0">Book Now</a>
                 </div>
             </nav>
         </div>
@@ -455,7 +359,7 @@
                 </div>
                 <div class="d-flex">
                     <div class="rounded-circle me-4" style="width: 100px; height: 100px;">
-                        <img class="img-fluid rounded-circle" src="img/testimonial-1.jpg" alt="Emily Taylor">
+                        <img class="img-fluid rounded-circle" src="img/3.png" alt="Emily Taylor">
                     </div>
                     <div class="my-auto">
                         <h5>Emily Taylor</h5>
@@ -480,7 +384,7 @@
                 </div>
                 <div class="d-flex">
                     <div class="rounded-circle me-4" style="width: 100px; height: 100px;">
-                        <img class="img-fluid rounded-circle" src="img/testimonial-2.jpg" alt="Rajesh Mehta">
+                        <img class="img-fluid rounded-circle" src="img/3.png" alt="Rajesh Mehta">
                     </div>
                     <div class="my-auto">
                         <h5>Rajesh Mehta</h5>
@@ -505,7 +409,7 @@
                 </div>
                 <div class="d-flex">
                     <div class="rounded-circle me-4" style="width: 100px; height: 100px;">
-                        <img class="img-fluid rounded-circle" src="img/testimonial-3.jpg" alt="Lisa Gomez">
+                        <img class="img-fluid rounded-circle" src="img/3.png" alt="Lisa Gomez">
                     </div>
                     <div class="my-auto">
                         <h5>Lisa Gomez</h5>
@@ -785,11 +689,161 @@
 </div>
 <!-- Footer End -->
 
+<!-- CHATBOT CODE BEGINS -->
+<div class="chatbot-icon">
+    <i class="fas fa-comments"></i>
+</div>
+
+<div class="chatbot-welcome-message">
+    Welcome to Auntie Vee Adventures! Chat with us directly.
+</div>
+
+<div class="chat-window">
+    <div class="chat-window-header">Chat with Auntie Vee Adventures</div>
+    <div class="chat-window-body" id="chatBody"></div>
+    <div class="chat-window-footer">
+        <input type="text" id="chatInput" placeholder="Type a message...">
+        <button id="sendButton">Send</button>
+    </div>
+</div>
+<!-- CHATBOT CODE ENDS -->
+
+
+     
+         <!-- WhatsApp Icon -->
+        <a href="https://wa.me/255758906071" target="_blank" class="whatsapp-float" title="Chat with us on WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+
+        <!-- Translator -->
+        <?php include 'translator.php'; ?>
+
+
 
         <!-- Back to Top -->
-        <a href="#" class="btn btn-primary btn-lg-square back-to-top"><i class="fa fa-arrow-up"></i></a>   
-
+        <a href="#" class="btn btn-primary btn-lg-square back-to-top"><i class="fa fa-arrow-up"></i></a> 
         
+       
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const chatbotIcon = document.querySelector('.chatbot-icon');
+            const chatWindow = document.querySelector('.chat-window');
+            const chatBody = document.getElementById('chatBody');
+            const chatInput = document.getElementById('chatInput');
+            const sendButton = document.getElementById('sendButton');
+            const chatIcon = document.querySelector('.chatbot-icon i');
+            const welcomeMessage = document.querySelector('.chatbot-welcome-message');
+
+            const userAvatar = 'img/3.png';
+            const botAvatar = 'img/3.png';
+
+            window.onload = () => {
+                welcomeMessage.style.display = 'block';
+                setTimeout(() => {
+                    welcomeMessage.style.display = 'none';
+                }, 5000);
+            };
+
+            chatbotIcon.addEventListener('click', () => {
+                if (chatWindow.style.display === 'none' || chatWindow.style.display === '') {
+                    chatWindow.style.display = 'block';
+                    chatIcon.classList.remove('fa-comments');
+                    chatIcon.classList.add('fa-times');
+                    welcomeMessage.style.display = 'none';
+                    setTimeout(() => {
+                        appendMessage('bot', 'Hello! 👋 Welcome to Auntie Vee Adventures. How can we assist you today?', botAvatar);
+                    }, 500);
+                } else {
+                    chatWindow.style.display = 'none';
+                    chatIcon.classList.remove('fa-times');
+                    chatIcon.classList.add('fa-comments');
+                }
+            });
+
+            sendButton.addEventListener('click', sendMessage);
+            chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
+
+            function sendMessage() {
+                const message = chatInput.value.trim().toLowerCase();
+                if (message !== '') {
+                    appendMessage('user', message, userAvatar);
+                    chatInput.value = '';
+
+                    setTimeout(() => {
+                        let botMessage;
+
+                        if (["hello", "hi", "hellow", "hey"].includes(message)) {
+                            botMessage = "Hi there! 😊 How can we help you today at Auntie Vee Adventures?";
+                        } else if (["mambo", "habari", "za uko", "za kazi", "inakuaje", "kwema"].some(greet => message.includes(greet))) {
+                            botMessage = "Salama kabisa! Karibu Auntie Vee Adventures, tupo kwa ajili yako.";
+                        } else if (message.includes("assalam")) {
+                            botMessage = "Walayqum salaam! Unakaribishwa sana.";
+                        } else if (message.includes("what do you do") || message.includes("services")) {
+                            botMessage = "We offer wildlife safaris, beach holidays, cultural tours, and more!";
+                        } else if (message.includes("where are you") || message.includes("location")) {
+                            botMessage = "We're based in Arusha, Tanzania 🗺️ — the heart of adventure!";
+                        } else if (message.includes("contact") || message.includes("phone")) {
+                            botMessage = "You can reach us via WhatsApp at 📞 +255 758 906 071 or email us at info@auntievee.com.";
+                        } else if (message.includes("website")) {
+                            botMessage = "Visit our official site at 🌐 [auntievee.com](https://auntievee.com)";
+                        } else if (message.includes("how can i volunteer") || message.includes("volunteer")) {
+                            botMessage = "Thanks for your interest! Please contact us on WhatsApp to learn more about volunteering.";
+                        } else if (message.includes("i am from dubai") || message.includes("package from dubai")) {
+                            botMessage = "Welcome! 🌍 Auntie Vee Adventures has great safari packages for international travelers. Let us know your preferences!";
+                        } else if (message.includes("is it safe") || message.includes("safety")) {
+                            botMessage = "Yes! Your safety is our top priority. Our guides are professional and fully trained. 🛡️🦓";
+                        } else if (message.includes("booking") || message.includes("book a tour") || message.includes("how to book")) {
+                            botMessage = "Booking is easy! Just send us a WhatsApp message or use the form on our website. ✅";
+                        } else if (message.includes("cost") || message.includes("how much") || message.includes("price")) {
+                            botMessage = "Prices vary by package. Let us know the destination and number of days for an accurate quote. 💰";
+                        } else if (message.includes("day trip") || message.includes("how many days") || message.includes("duration")) {
+                            botMessage = "We offer 1-day trips, weekend getaways, and week-long safari experiences. 🏕️🐘";
+                        } else if (message.includes("package") || message.includes("tour package") || message.includes("what's included")) {
+                            botMessage = "All packages include transport, meals, accommodation, and guided tours. 🧳📦";
+                        } else if (message.includes("accommodation") || message.includes("where will i stay") || message.includes("hotel")) {
+                            botMessage = "We work with top lodges and hotels to make sure you're always comfortable. 🏨🌴";
+                        } else if (message.includes("condition") || message.includes("weather") || message.includes("climate")) {
+                            botMessage = "Tanzania's weather is warm and sunny most of the year — perfect for adventures! ☀️🌿";
+                        } else {
+                            botMessage = "Thanks for your message! 🌟 Please WhatsApp us directly at +255 758 906 071 or ask a specific question.";
+                        }
+
+                        appendMessage('bot', botMessage, botAvatar);
+                    }, 1000);
+                }
+            }
+
+            function appendMessage(sender, message, avatar) {
+                const messageContainer = document.createElement('div');
+                messageContainer.classList.add('message-container', sender);
+
+                const profileImage = document.createElement('img');
+                profileImage.classList.add('profile-image');
+                profileImage.src = avatar;
+
+                const messageElement = document.createElement('div');
+                messageElement.classList.add('message', sender);
+                messageElement.textContent = message;
+
+                if (sender === 'user') {
+                    messageContainer.appendChild(messageElement);
+                    messageContainer.appendChild(profileImage);
+                } else {
+                    messageContainer.appendChild(profileImage);
+                    messageContainer.appendChild(messageElement);
+                }
+
+                chatBody.appendChild(messageContainer);
+                chatBody.scrollTop = chatBody.scrollHeight;
+            }
+        });
+        </script>
+
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -800,8 +854,8 @@
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     
 
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <!-- Main Javascript -->
+    <script src="js/mains.js"></script>
     </body>
 
 </html>
