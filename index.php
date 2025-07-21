@@ -4,6 +4,7 @@
     <head>
         <meta charset="utf-8">
         <title>Auntie Vee Adventures</title>
+        <link rel="icon" href="/img/alogo.png" type="image/png">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="" name="keywords">
         <meta content="" name="description">
@@ -58,11 +59,11 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
-                        <a href="index.html" class="nav-item nav-link active">Home</a>
-                        <a href="about.html" class="nav-item nav-link">About</a>
-                        <a href="service.html" class="nav-item nav-link">Service</a>
+                        <a href="index.php" class="nav-item nav-link active">Home</a>
+                        <a href="about.php" class="nav-item nav-link">About</a>
+                        <a href="service.php" class="nav-item nav-link">Service</a>
                         <a href="gallery.php" class="nav-item nav-link">Gallery</a>
-                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                        <a href="contact.php" class="nav-item nav-link">Contact</a>
                     </div>
                     <button class="btn btn-primary btn-md-square border-secondary mb-3 mb-md-3 mb-lg-0 me-3" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
                     <a href="#booking" class="btn btn-primary border-secondary rounded-pill py-2 px-4 px-lg-3 mb-3 mb-md-3 mb-lg-0">Book Now</a>
@@ -92,7 +93,7 @@
                         <p class="text-white mb-4 wow fadeInUp" data-wow-delay="0.5s" style="font-size:1.125rem;">
                             Discover the beauty of Tanzania through guided tours in the Northern Circuit, Mikumi, Ruaha, Selous, Masai Mara, the Great Migration, and Gombe & Saadani National Parks.
                         </p>
-                        <a class="btn btn-primary border-secondary rounded-pill text-white py-3 px-5 wow fadeInUp" data-wow-delay="0.7s" href="#">Start Your Safari</a>
+                        <a class="btn btn-primary border-secondary rounded-pill text-white py-3 px-5 wow fadeInUp" data-wow-delay="0.7s" href="wildlifesafaris.php">Start Your Safari</a>
                     </div>
                 </div>
             </div>
@@ -107,7 +108,7 @@
                         <p class="text-white mb-4 wow fadeInUp" data-wow-delay="0.5s" style="font-size:1.125rem;">
                             Relax on pristine beaches in Zanzibar, Mafia, and Pemba. Dive into Tanzania’s rich culture with village tours, traditional cuisine, biking safaris, and bird watching.
                         </p>
-                        <a class="btn btn-primary border-secondary rounded-pill text-white py-3 px-5 wow fadeInUp" data-wow-delay="0.7s" href="#">Book Your Trip</a>
+                        <a class="btn btn-primary border-secondary rounded-pill text-white py-3 px-5 wow fadeInUp" data-wow-delay="0.7s" href="island.php">Book Your Trip</a>
                     </div>
                 </div>
             </div>
@@ -122,26 +123,32 @@
                         <p class="text-white mb-4 wow fadeInUp" data-wow-delay="0.5s" style="font-size:1.125rem;">
                             Take on thrilling hiking and trekking adventures with experienced guides. Explore Mt. Kilimanjaro, Mt. Meru, and scenic walking safaris across Tanzania's landscapes.
                         </p>
-                        <a class="btn btn-primary border-secondary rounded-pill text-white py-3 px-5 wow fadeInUp" data-wow-delay="0.7s" href="#">View Climbing Packages</a>
+                        <a class="btn btn-primary border-secondary rounded-pill text-white py-3 px-5 wow fadeInUp" data-wow-delay="0.7s" href="mountain-trekking.php">View Climbing Packages</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Slide 4: Special Activities -->
-            <div class="carousel-item">
-                <img src="img/bird.jpg" class="img-fluid" alt="Special Activities">
-                <div class="carousel-caption">
-                    <div class="text-center p-4" style="max-width: 900px;">
-                        <h5 class="text-white text-uppercase fw-bold mb-3 wow fadeInUp" data-wow-delay="0.1s" style="font-size:1.25rem;">Unique Safari Experiences</h5>
-                        <h2 class="text-capitalize text-white fw-bold mb-3 wow fadeInUp" data-wow-delay="0.3s" style="font-size:2.75rem;">Bird Watching, Night Drives & More</h2>
-                        <p class="text-white mb-4 wow fadeInUp" data-wow-delay="0.5s" style="font-size:1.125rem;">
-                            Enjoy customized adventures like nocturnal game drives, bird watching trips, biking safaris, and immersive cultural experiences led by local experts.
-                        </p>
-                        <a class="btn btn-primary border-secondary rounded-pill text-white py-3 px-5 wow fadeInUp" data-wow-delay="0.7s" href="#">Discover Activities</a>
+                <!-- Slide 4: Cultural Journeys -->
+                <div class="carousel-item">
+                    <img src="img/cu.jpg" class="img-fluid" alt="Cultural Journeys">
+                    <div class="carousel-caption">
+                        <div class="text-center p-4" style="max-width: 900px;">
+                            <h5 class="text-white text-uppercase fw-bold mb-3 wow fadeInUp" data-wow-delay="0.1s" style="font-size:1.25rem;">
+                                Cultural & Adventure Tours
+                            </h5>
+                            <h2 class="text-capitalize text-white fw-bold mb-3 wow fadeInUp" data-wow-delay="0.3s" style="font-size:2.75rem;">
+                                Cultural Tours, Night Drives, Biking & Bird Watching
+                            </h2>
+                            <p class="text-white mb-4 wow fadeInUp" data-wow-delay="0.5s" style="font-size:1.125rem;">
+                                Experience Tanzania’s vibrant culture with guided village tours, thrilling nocturnal safaris, adventurous bike rides, and peaceful birdwatching trips — all led by local experts.
+                            </p>
+                            <a class="btn btn-primary border-secondary rounded-pill text-white py-3 px-5 wow fadeInUp" data-wow-delay="0.7s" href="cultural.php">
+                                Discover Activities
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
+
 
         <!-- Controls -->
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
