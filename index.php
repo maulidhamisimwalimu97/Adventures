@@ -273,7 +273,7 @@
                             </div>
                             <h4 class="mb-3">Wildlife Safaris</h4>
                             <p>Experience the thrill of African wildlife in Serengeti, Ngorongoro, Mikumi, Selous, and more with expert guides.</p>
-                            <a class="btn btn-outline-primary rounded-pill px-4 py-2 mt-3" href="#">Learn More</a>
+                            <a class="btn btn-outline-primary rounded-pill px-4 py-2 mt-3" href="wildlifesafaris.php">Learn More</a>
                         </div>
                     </div>
                     <!-- Service 2 -->
@@ -284,7 +284,7 @@
                             </div>
                             <h4 class="mb-3">Beach & Island Tours</h4>
                             <p>Unwind on the pristine shores of Zanzibar, Mafia, and Pemba — ideal for snorkeling, diving, and relaxation.</p>
-                            <a class="btn btn-outline-primary rounded-pill px-4 py-2 mt-3" href="#">Learn More</a>
+                            <a class="btn btn-outline-primary rounded-pill px-4 py-2 mt-3" href="island.php">Learn More</a>
                         </div>
                     </div>
                     <!-- Service 3 -->
@@ -295,7 +295,7 @@
                             </div>
                             <h4 class="mb-3">Mountain Climbing</h4>
                             <p>Climb Mount Kilimanjaro or Mount Meru with professional support and customized trekking itineraries.</p>
-                            <a class="btn btn-outline-primary rounded-pill px-4 py-2 mt-3" href="#">Learn More</a>
+                            <a class="btn btn-outline-primary rounded-pill px-4 py-2 mt-3" href="mountain-trekking.php">Learn More</a>
                         </div>
                     </div>
                     <!-- Service 4 -->
@@ -306,7 +306,7 @@
                             </div>
                             <h4 class="mb-3">Biking & Hiking Tours</h4>
                             <p>Explore Tanzania's natural beauty through biking safaris, nature walks, and scenic hiking experiences.</p>
-                            <a class="btn btn-outline-primary rounded-pill px-4 py-2 mt-3" href="#">Learn More</a>
+                            <a class="btn btn-outline-primary rounded-pill px-4 py-2 mt-3" href="cultural.php">Learn More</a>
                         </div>
                     </div>
                     <!-- Service 5 -->
@@ -317,7 +317,7 @@
                             </div>
                             <h4 class="mb-3">Bird Watching</h4>
                             <p>Join guided birdwatching trips across rich ecosystems from Lake Manyara to Gombe National Park.</p>
-                            <a class="btn btn-outline-primary rounded-pill px-4 py-2 mt-3" href="#">Learn More</a>
+                            <a class="btn btn-outline-primary rounded-pill px-4 py-2 mt-3" href="cultural.php">Learn More</a>
                         </div>
                     </div>
                     <!-- Service 6 -->
@@ -328,7 +328,7 @@
                             </div>
                             <h4 class="mb-3">Cultural Tours</h4>
                             <p>Discover authentic Tanzanian culture through village visits, local cuisine, dancing, crafts, and storytelling.</p>
-                            <a class="btn btn-outline-primary rounded-pill px-4 py-2 mt-3" href="#">Learn More</a>
+                            <a class="btn btn-outline-primary rounded-pill px-4 py-2 mt-3" href="cultural.php">Learn More</a>
                         </div>
                     </div>
                 </div>
@@ -441,7 +441,7 @@
     <div class="tab-class text-center">
         <ul class="nav nav-pills d-inline-flex justify-content-center mb-5">
             <li class="nav-item">
-                <a class="d-flex mx-3 py-2 border border-primary bg-light rounded-pill active" data-bs-toggle="pill" href="#GalleryTab-All">
+                <a class="d-flex mx-3 py-2 border border-primary bg-light rounded-pill active" data-bs-toggle="pill" href="gallery.php">
                     <span class="text-dark" style="width: 150px;">All Moments</span>
                 </a>
             </li>
@@ -498,7 +498,7 @@
 
         <!-- Button -->
         <div class="text-center mt-5">
-            <a class="btn btn-primary border-secondary rounded-pill py-3 px-5 wow fadeInUp" data-wow-delay="0.5s" href="#">View Full Gallery</a>
+            <a class="btn btn-primary border-secondary rounded-pill py-3 px-5 wow fadeInUp" data-wow-delay="0.5s" href="gallery.php">View Full Gallery</a>
         </div>
     </div>
 </div>
@@ -701,9 +701,6 @@
     <i class="fas fa-comments"></i>
 </div>
 
-<div class="chatbot-welcome-message">
-    Welcome to Auntie Vee Adventures! Chat with us directly.
-</div>
 
 <div class="chat-window">
     <div class="chat-window-header">Chat with Auntie Vee Adventures</div>
@@ -712,6 +709,7 @@
         <input type="text" id="chatInput" placeholder="Type a message...">
         <button id="sendButton">Send</button>
     </div>
+</div>
 </div>
 <!-- CHATBOT CODE ENDS -->
 
