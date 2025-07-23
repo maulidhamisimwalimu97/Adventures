@@ -6,7 +6,7 @@ $success = false;
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Database credentials
     $host = "localhost";
-    $dbname = "herous";
+    $dbname = "Adv";
     $username = "root";
     $password = "";
 

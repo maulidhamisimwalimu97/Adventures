@@ -128,7 +128,7 @@
                     <?php
                     // Database connection
                     $host = "localhost";
-                    $dbname = "herous";
+                    $dbname = "Adv";
                     $username = "root";
                     $password = "";
 
@@ -157,7 +157,7 @@
 
                   <?php
                     $host = "localhost";
-                    $dbname = "herous";
+                    $dbname = "Adv";
                     $username = "root";
                     $password = "";
 
@@ -193,7 +193,7 @@
                     <?php
                     // Database connection
                     $host = "localhost";
-                    $dbname = "herous";
+                    $dbname = "Adv";
                     $username = "root";
                     $password = "";
 
@@ -221,7 +221,7 @@
 
                                 <?php
                                 // Connect to database
-                                $conn = new mysqli("localhost", "root", "", "herous");
+                                $conn = new mysqli("localhost", "root", "", "Adv");
                                 if ($conn->connect_error) {
                                     die("Connection failed: " . $conn->connect_error);
                                 }
@@ -266,7 +266,7 @@
                     <?php
                     // Database connection
                     $host = "localhost";
-                    $dbname = "herous";
+                    $dbname = "Adv";
                     $username = "root";
                     $password = "";
 
@@ -303,7 +303,7 @@
 
                     <table>
                         <?php
-                        $conn = new mysqli("localhost", "root", "", "herous");
+                        $conn = new mysqli("localhost", "root", "", "Adv");
 
                         if ($conn->connect_error) {
                             echo "<tr><td colspan='2'>Connection failed: " . $conn->connect_error . "</td></tr>";

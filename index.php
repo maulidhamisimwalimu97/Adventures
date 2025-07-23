@@ -1,3 +1,51 @@
+<?php
+// Handle form submission at the top of the file
+$submitted = false;
+$success = false;
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Database credentials
+    $host = "localhost";
+    $dbname = "Adv";
+    $username = "root";
+    $password = "";
+
+    // Create connection
+    $conn = new mysqli($host, $username, $password, $dbname);
+
+    // Check connection
+    if ($conn->connect_error) {
+        $submitted = true;
+        $success = false;
+    } else {
+        // Retrieve and sanitize form data
+        $tour_name = $_POST['tour_name'];
+        $full_name = $_POST['full_name'];
+        $email = $_POST['email'];
+        $arrival_date = $_POST['arrival_date'];
+        $number_of_adults = $_POST['number_of_adults'];
+        $number_of_children = $_POST['number_of_children'];
+        $special_requests = $_POST['special_requests'];
+
+        // Prepare SQL insert
+        $stmt = $conn->prepare("INSERT INTO booking (tour_name, full_name, email, arrival_date, number_of_adults, number_of_children, special_requests) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssssiis", $tour_name, $full_name, $email, $arrival_date, $number_of_adults, $number_of_children, $special_requests);
+
+        if ($stmt->execute()) {
+            $success = true;
+        } else {
+            $success = false;
+        }
+
+        $submitted = true;
+        $stmt->close();
+        $conn->close();
+    }
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -168,23 +216,23 @@
         <!-- Modal Search Start -->
         <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-fullscreen">
-                <div class="modal-content rounded-0">
+                <form id="searchForm" class="modal-content rounded-0">
                     <div class="modal-header">
                         <h4 class="modal-title text-secondary mb-0" id="exampleModalLabel">Search by keyword</h4>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body d-flex align-items-center">
                         <div class="input-group w-75 mx-auto d-flex">
-                            <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
-                            <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
+                            <input type="search" id="searchInput" class="form-control p-3" placeholder="e.g. birds, Zanzibar, Kilimanjaro..." aria-describedby="search-icon-1" required>
+                            <button type="submit" class="input-group-text p-3" id="search-icon-1">
+                                <i class="fa fa-search"></i>
+                            </button>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
         <!-- Modal Search End -->
-
-
 
         <!-- About Start -->
             <div class="container-fluid py-5">
@@ -848,6 +896,73 @@
             }
         });
         </script>
+
+<!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<?php if ($submitted): ?>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        Swal.fire({
+            icon: <?= $success ? "'success'" : "'error'" ?>,
+            title: <?= $success ? "'Booking Confirmed!'" : "'Booking Failed'" ?>,
+            text: <?= $success 
+                ? json_encode("Thank you, $full_name. We'll contact you shortly!") 
+                : json_encode("Something went wrong. Please try again later.") ?>,
+            confirmButtonColor: '#ffa500'
+        });
+    });
+</script>
+<?php endif; ?>
+
+<script>
+document.getElementById('searchForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const query = document.getElementById('searchInput').value.toLowerCase().trim();
+
+    const searchMap = {
+        'wildlife': 'wildlifesafaris.php',
+        'safari': 'wildlifesafaris.php',
+        'national park': 'wildlifesafaris.php',
+        'zanzibar': 'island.php',
+        'island': 'island.php',
+        'beach': 'island.php',
+        'pemba': 'island.php',
+        'mafia': 'island.php',
+        'mountain': 'mountain-trekking.php',
+        'kilimanjaro': 'mountain-trekking.php',
+        'meru': 'mountain-trekking.php',
+        'trek': 'mountain-trekking.php',
+        'hike': 'mountain-trekking.php',
+        'culture': 'cultural.php',
+        'cultural': 'cultural.php',
+        'bike': 'cultural.php',
+        'night': 'cultural.php',
+        'bird': 'cultural.php',
+        'birds': 'cultural.php'
+    };
+
+    let matched = null;
+    for (const keyword in searchMap) {
+        if (query.includes(keyword)) {
+            matched = searchMap[keyword];
+            break;
+        }
+    }
+
+    if (matched) {
+        window.location.href = matched;
+    } else {
+        Swal.fire({
+            icon: 'error',
+            title: 'Not Found',
+            text: 'Sorry, we could not find a match for your search.',
+            confirmButtonColor: '#dc3545'
+        });
+    }
+});
+</script>
+
 
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>

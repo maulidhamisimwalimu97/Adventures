@@ -1,3 +1,37 @@
+<?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+$success = false;
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $conn = new mysqli("localhost", "root", "", "Adv");
+
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $full_name = $conn->real_escape_string($_POST["name"]);
+    $email     = $conn->real_escape_string($_POST["email"]);
+    $phone     = $conn->real_escape_string($_POST["phone"]);
+    $subject   = "Tour Inquiry"; // Static subject
+    $message   = $conn->real_escape_string($_POST["message"]);
+
+    $sql = "INSERT INTO contact (full_name, email, phone, subject, message) 
+            VALUES ('$full_name', '$email', '$phone', '$subject', '$message')";
+
+    if ($conn->query($sql) === TRUE) {
+        $success = true;
+    }
+
+    $conn->close();
+}
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -154,7 +188,7 @@
                 </div>
                 <h1 class="display-5 mb-4">Send Us a Message</h1>
                 <p class="mb-3">Have a destination in mind? Want a custom itinerary? Drop us a message and our team will get back to you shortly.</p>
-                <form action="send_message.php" method="POST">
+                <form method="POST">
                     <div class="row g-4">
                         <div class="col-lg-12 col-xl-6">
                             <div class="form-floating">
@@ -168,18 +202,13 @@
                                 <label for="email">Your Email</label>
                             </div>
                         </div>
-                        <div class="col-lg-12 col-xl-6">
+                        <div class="col-12">
                             <div class="form-floating">
-                                <input type="tel" class="form-control" name="phone" id="phone" placeholder="Phone">
+                                <input type="text" class="form-control" name="phone" id="phone" placeholder="Your Phone" required>
                                 <label for="phone">Your Phone</label>
                             </div>
                         </div>
-                        <div class="col-lg-12 col-xl-6">
-                            <div class="form-floating">
-                                <input type="text" class="form-control" name="interest" id="interest" placeholder="Your Interest">
-                                <label for="interest">Tour Interest</label>
-                            </div>
-                        </div>
+
                         <div class="col-12">
                             <div class="form-floating">
                                 <textarea class="form-control" placeholder="Leave a message here" name="message" id="message" style="height: 160px" required></textarea>
@@ -431,6 +460,24 @@
             }
         });
         </script>
+
+        <!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<?php if ($_SERVER["REQUEST_METHOD"] == "POST"): ?>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        Swal.fire({
+            icon: <?= $success ? "'success'" : "'error'" ?>,
+            title: <?= $success ? "'Message Sent!'" : "'Failed!'" ?>,
+            text: <?= $success 
+                ? json_encode("Thank you, $full_name. We’ll get back to you shortly.") 
+                : json_encode("Something went wrong. Please try again.") ?>,
+            confirmButtonColor: '#3085d6'
+        });
+    });
+</script>
+<?php endif; ?>
+
 
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>

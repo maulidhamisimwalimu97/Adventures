@@ -150,7 +150,7 @@
             <tbody>
                 <?php
                 $host = "localhost";
-                $dbname = "herous";
+                $dbname = "Adv";
                 $username = "root";
                 $password = "";
 
