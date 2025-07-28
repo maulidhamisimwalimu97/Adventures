@@ -49,7 +49,7 @@
                 <a href="" class="navbar-brand p-0 d-flex align-items-center">
                     <img src="img/alogo.png" alt="Adventures Logo"
                     class="img-fluid"
-                    style="max-height: 100px; height: auto; width: auto;">
+                    style="max-height: 120px; height: auto; width: auto;">
                 </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -154,16 +154,23 @@
             <div class="col-md-6 col-lg-6 col-xl-3">
                 <div class="footer-item d-flex flex-column">
                     <h4 class="text-secondary mb-4">Contact Info</h4>
-                    <a href="https://goo.gl/maps/your-location" target="_blank" class="text-white mb-2"><i class="fa fa-map-marker-alt me-2"></i> 123 Safari Road, Arusha, Tanzania</a>
-                    <a href="mailto:info@auntievee.com" class="text-white mb-2"><i class="fas fa-envelope me-2"></i> info@auntievee.com</a>
-                    <a href="tel:+255123456789" class="text-white mb-2"><i class="fas fa-phone me-2"></i> +255 123 456 789</a>
-                    <a href="fax:+255123456788" class="text-white mb-3"><i class="fas fa-print me-2"></i> +255 123 456 788</a>
+                    <a href="https://goo.gl/maps/your-location" target="_blank" class="text-white mb-2">
+                        <i class="fa fa-map-marker-alt me-2"></i> 123 Safari Road, Arusha, Tanzania</a>
+                    <a href="mailto:info@auntievee.com" class="text-white mb-2">
+                        <i class="fas fa-envelope me-2"></i> info@auntievee.com</a>
+                    <a href="tel:0687789424" class="text-white mb-2">
+                        <i class="fas fa-phone me-2"></i> 068 778 9424</a>
+                </div>
+            </div>
+
+            <!-- Social Media -->
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item">
+                    <h4 class="text-secondary mb-4">Follow Us</h4>
+                    <p class="text-white mb-3">Stay connected with us on social media for amazing travel content and deals.</p>
                     <div class="d-flex align-items-center">
-                        <i class="fas fa-share fa-2x text-secondary me-3"></i>
-                        <a class="btn btn-outline-light btn-sm mx-1" href="https://facebook.com/auntievee" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-sm mx-1" href="https://twitter.com/auntievee" target="_blank"><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-outline-light btn-sm mx-1" href="https://instagram.com/auntievee" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a class="btn btn-outline-light btn-sm mx-1" href="https://linkedin.com/company/auntievee" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-outline-light btn-sm mx-1" href="https://facebook.com/AuntieVeeAdventures" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-sm mx-1" href="https://instagram.com/auntieveeadventures" target="_blank"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
@@ -199,33 +206,28 @@
                     <a href="#" class="text-white mb-2"><i class="fas fa-angle-right me-2"></i> Customized Itineraries</a>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
 
-            <!-- Newsletter -->
-            <div class="col-md-6 col-lg-6 col-xl-3">
-                <div class="footer-item">
-                    <h4 class="text-secondary mb-4">Newsletter</h4>
-                    <p class="text-white mb-3">
-                        Subscribe to our newsletter and stay updated on latest safari deals, cultural events, and travel tips.
-                    </p>
-                    <div class="position-relative mx-auto rounded-pill">
-                        <input class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" type="email" placeholder="Enter your email">
-                        <button type="button" class="btn btn-primary rounded-pill position-absolute top-0 end-0 py-2 mt-2 me-2">Sign Up</button>
-                    </div>
-                </div>
+<!-- Copyright Start -->
+<div class="container-fluid copyright py-4" style="background-color: #111;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-auto text-center text-white">
+                Designed by <a class="border-bottom text-white text-decoration-none" href="https://jaftech.co.tz/" target="_blank">JAFTECH INVESTMENT COMPANY LIMITED</a>
             </div>
         </div>
     </div>
 </div>
-<!-- Footer End -->
+<!-- Copyright End -->
+
 
 <!-- CHATBOT CODE BEGINS -->
 <div class="chatbot-icon">
     <i class="fas fa-comments"></i>
 </div>
 
-<div class="chatbot-welcome-message">
-    Welcome to Auntie Vee Adventures! Chat with us directly.
-</div>
 
 <div class="chat-window">
     <div class="chat-window-header">Chat with Auntie Vee Adventures</div>
@@ -235,14 +237,16 @@
         <button id="sendButton">Send</button>
     </div>
 </div>
+</div>
 <!-- CHATBOT CODE ENDS -->
 
 
      
          <!-- WhatsApp Icon -->
-        <a href="https://wa.me/255758906071" target="_blank" class="whatsapp-float" title="Chat with us on WhatsApp">
+        <a href="https://wa.me/255687789424" target="_blank" class="whatsapp-float" title="Chat with us on WhatsApp">
             <i class="fab fa-whatsapp"></i>
         </a>
+
 
         <!-- Translator -->
         <?php include 'translator.php'; ?>

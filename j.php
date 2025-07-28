@@ -1,55 +1,8 @@
-<?php
-// Handle form submission at the top of the file
-$submitted = false;
-$success = false;
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Database credentials
-    $host = "localhost";
-    $dbname = "Adv";
-    $username = "root";
-    $password = "";
-
-    // Create connection
-    $conn = new mysqli($host, $username, $password, $dbname);
-
-    // Check connection
-    if ($conn->connect_error) {
-        $submitted = true;
-        $success = false;
-    } else {
-        // Retrieve and sanitize form data
-        $tour_name = $_POST['tour_name'];
-        $full_name = $_POST['full_name'];
-        $email = $_POST['email'];
-        $arrival_date = $_POST['arrival_date'];
-        $number_of_adults = $_POST['number_of_adults'];
-        $number_of_children = $_POST['number_of_children'];
-        $special_requests = $_POST['special_requests'];
-
-        // Prepare SQL insert
-        $stmt = $conn->prepare("INSERT INTO booking (tour_name, full_name, email, arrival_date, number_of_adults, number_of_children, special_requests) VALUES (?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssssiis", $tour_name, $full_name, $email, $arrival_date, $number_of_adults, $number_of_children, $special_requests);
-
-        if ($stmt->execute()) {
-            $success = true;
-        } else {
-            $success = false;
-        }
-
-        $submitted = true;
-        $stmt->close();
-        $conn->close();
-    }
-}
-?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
+       <head>
         <meta charset="utf-8">
         <title>Auntie Vee Adventures</title>
         <link rel="icon" href="/img/alogo.png" type="image/png">
@@ -79,11 +32,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
         <link href="css/new.css" rel="stylesheet">
+
+
     </head>
+
 
     <body>
 
-        <!-- Spinner Start -->
+          <!-- Spinner Start -->
         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-border text-secondary" style="width: 3rem; height: 3rem;" role="status">
                 <span class="sr-only">Loading...</span>
@@ -97,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <a href="" class="navbar-brand p-0 d-flex align-items-center">
                     <img src="img/alogo.png" alt="Adventures Logo"
                     class="img-fluid"
-                    style="max-height: 120px; height: auto; width: auto;">
+                    style="max-height: 100px; height: auto; width: auto;">
                 </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -119,95 +75,94 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <!-- Navbar & Hero End -->
 
 
-      <!-- Carousel Start -->
-<section class="carousel-header">
+        <!-- Carousel Start -->
+<div class="carousel-header">
     <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
-
-        <!-- Indicators (Carousel Dots) -->
         <ol class="carousel-indicators">
             <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active"></li>
             <li data-bs-target="#carouselId" data-bs-slide-to="1"></li>
             <li data-bs-target="#carouselId" data-bs-slide-to="2"></li>
             <li data-bs-target="#carouselId" data-bs-slide-to="3"></li>
         </ol>
-
-        <!-- Carousel Inner -->
-        <div class="carousel-inner">
-
+        <div class="carousel-inner" role="listbox">
             <!-- Slide 1: Wildlife Safaris -->
             <div class="carousel-item active">
-                <img src="img/wild.jpg" class="d-block w-100 img-fluid" alt="Wildlife Safaris">
-                <div class="carousel-caption d-md-block">
-                    <div class="container text-center p-3 p-md-4">
-                        <h4 class="text-white text-uppercase fw-bold mb-2">Auntie Vee Adventures</h4>
-                        <h2 class="text-white fw-bold mb-3">Explore Wildlife Safaris & National Parks</h2>
-                        <p class="text-white mb-4">
-                            Discover the beauty of Tanzania through guided tours in the Northern Circuit, Mikumi, Ruaha, Selous, and more.
+                <img src="img/wild.jpg" class="img-fluid" alt="Wildlife Safaris">
+                <div class="carousel-caption">
+                    <div class="text-center p-4" style="max-width: 900px;">
+                        <h4 class="text-white text-uppercase fw-bold mb-3 wow fadeInUp" data-wow-delay="0.1s" style="font-size:1.5rem;">Auntie Vee Adventures</h4>
+                        <h2 class="text-capitalize text-white fw-bold mb-3 wow fadeInUp" data-wow-delay="0.3s" style="font-size:2.75rem;">Explore Wildlife Safaris & National Parks</h2>
+                        <p class="text-white mb-4 wow fadeInUp" data-wow-delay="0.5s" style="font-size:1.125rem;">
+                            Discover the beauty of Tanzania through guided tours in the Northern Circuit, Mikumi, Ruaha, Selous, Masai Mara, the Great Migration, and Gombe & Saadani National Parks.
                         </p>
-                        <a href="wildlifesafaris.php" class="btn btn-primary text-white rounded-pill py-2 px-4">Start Your Safari</a>
+                        <a class="btn btn-primary border-secondary rounded-pill text-white py-3 px-5 wow fadeInUp" data-wow-delay="0.7s" href="wildlifesafaris.php">Start Your Safari</a>
                     </div>
                 </div>
             </div>
 
             <!-- Slide 2: Island Getaways & Cultural Tours -->
             <div class="carousel-item">
-                <img src="img/island.jpg" class="d-block w-100 img-fluid" alt="Island and Cultural Tours">
-                <div class="carousel-caption d-md-block">
-                    <div class="container text-center p-3 p-md-4">
-                        <h5 class="text-white text-uppercase fw-bold mb-2">Island Getaways & Cultural Journeys</h5>
-                        <h2 class="text-white fw-bold mb-3">Experience Zanzibar & Local Culture</h2>
-                        <p class="text-white mb-4">
-                            Relax on pristine beaches. Dive into Tanzania’s rich culture with village tours, traditional cuisine, and more.
+                <img src="img/island.jpg" class="img-fluid" alt="Island and Cultural Tours">
+                <div class="carousel-caption">
+                    <div class="text-center p-4" style="max-width: 900px;">
+                        <h5 class="text-white text-uppercase fw-bold mb-3 wow fadeInUp" data-wow-delay="0.1s" style="font-size:1.25rem;">Island Getaways & Cultural Journeys</h5>
+                        <h2 class="text-capitalize text-white fw-bold mb-3 wow fadeInUp" data-wow-delay="0.3s" style="font-size:2.75rem;">Experience Zanzibar, Pemba & Local Culture</h2>
+                        <p class="text-white mb-4 wow fadeInUp" data-wow-delay="0.5s" style="font-size:1.125rem;">
+                            Relax on pristine beaches in Zanzibar, Mafia, and Pemba. Dive into Tanzania’s rich culture with village tours, traditional cuisine, biking safaris, and bird watching.
                         </p>
-                        <a href="island.php" class="btn btn-primary text-white rounded-pill py-2 px-4">Book Your Trip</a>
+                        <a class="btn btn-primary border-secondary rounded-pill text-white py-3 px-5 wow fadeInUp" data-wow-delay="0.7s" href="island.php">Book Your Trip</a>
                     </div>
                 </div>
             </div>
 
             <!-- Slide 3: Mountain Adventures -->
             <div class="carousel-item">
-                <img src="img/mt-kilimanjaro.jpg" class="d-block w-100 img-fluid" alt="Mountain Adventures">
-                <div class="carousel-caption d-md-block">
-                    <div class="container text-center p-3 p-md-4">
-                        <h5 class="text-white text-uppercase fw-bold mb-2">Mountain Treks & Climbing</h5>
-                        <h2 class="text-white fw-bold mb-3">Conquer Kilimanjaro & Mt. Meru</h2>
-                        <p class="text-white mb-4">
-                            Explore Mt. Kilimanjaro, Mt. Meru, and scenic walking safaris across Tanzania's landscapes.
+                <img src="img/mt-kilimanjaro.jpg" class="img-fluid" alt="Mountain Adventures">
+                <div class="carousel-caption">
+                    <div class="text-center p-4" style="max-width: 900px;">
+                        <h5 class="text-white text-uppercase fw-bold mb-3 wow fadeInUp" data-wow-delay="0.1s" style="font-size:1.25rem;">Mountain Treks & Climbing</h5>
+                        <h2 class="text-capitalize text-white fw-bold mb-3 wow fadeInUp" data-wow-delay="0.3s" style="font-size:2.75rem;">Conquer Kilimanjaro & Mt. Meru</h2>
+                        <p class="text-white mb-4 wow fadeInUp" data-wow-delay="0.5s" style="font-size:1.125rem;">
+                            Take on thrilling hiking and trekking adventures with experienced guides. Explore Mt. Kilimanjaro, Mt. Meru, and scenic walking safaris across Tanzania's landscapes.
                         </p>
-                        <a href="mountain-trekking.php" class="btn btn-primary text-white rounded-pill py-2 px-4">View Climbing Packages</a>
+                        <a class="btn btn-primary border-secondary rounded-pill text-white py-3 px-5 wow fadeInUp" data-wow-delay="0.7s" href="mountain-trekking.php">View Climbing Packages</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Slide 4: Cultural Journeys -->
-            <div class="carousel-item">
-                <img src="img/cu.jpg" class="d-block w-100 img-fluid" alt="Cultural Journeys">
-                <div class="carousel-caption d-md-block">
-                    <div class="container text-center p-3 p-md-4">
-                        <h5 class="text-white text-uppercase fw-bold mb-2">Cultural & Adventure Tours</h5>
-                        <h2 class="text-white fw-bold mb-3">Night Drives, Biking & Bird Watching</h2>
-                        <p class="text-white mb-4">
-                            Enjoy village tours, nocturnal safaris, adventurous bike rides, and peaceful birdwatching trips with local experts.
-                        </p>
-                        <a href="cultural.php" class="btn btn-primary text-white rounded-pill py-2 px-4">Discover Activities</a>
+                <!-- Slide 4: Cultural Journeys -->
+                <div class="carousel-item">
+                    <img src="img/cu.jpg" class="img-fluid" alt="Cultural Journeys">
+                    <div class="carousel-caption">
+                        <div class="text-center p-4" style="max-width: 900px;">
+                            <h5 class="text-white text-uppercase fw-bold mb-3 wow fadeInUp" data-wow-delay="0.1s" style="font-size:1.25rem;">
+                                Cultural & Adventure Tours
+                            </h5>
+                            <h2 class="text-capitalize text-white fw-bold mb-3 wow fadeInUp" data-wow-delay="0.3s" style="font-size:2.75rem;">
+                                Cultural Tours, Night Drives, Biking & Bird Watching
+                            </h2>
+                            <p class="text-white mb-4 wow fadeInUp" data-wow-delay="0.5s" style="font-size:1.125rem;">
+                                Experience Tanzania’s vibrant culture with guided village tours, thrilling nocturnal safaris, adventurous bike rides, and peaceful birdwatching trips — all led by local experts.
+                            </p>
+                            <a class="btn btn-primary border-secondary rounded-pill text-white py-3 px-5 wow fadeInUp" data-wow-delay="0.7s" href="cultural.php">
+                                Discover Activities
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-        </div>
 
-        <!-- Carousel Controls -->
+        <!-- Controls -->
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon bg-secondary rounded-circle p-3" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
+            <span class="carousel-control-prev-icon bg-secondary wow fadeInLeft" data-wow-delay="0.2s" aria-hidden="false"></span>
+            <span class="visually-hidden-focusable">Previous</span>
         </button>
-
         <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
-            <span class="carousel-control-next-icon bg-secondary rounded-circle p-3" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
+            <span class="carousel-control-next-icon bg-secondary wow fadeInRight" data-wow-delay="0.2s" aria-hidden="false"></span>
+            <span class="visually-hidden-focusable">Next</span>
         </button>
     </div>
-</section>
+</div>
 <!-- Carousel End -->
 
 
@@ -382,110 +337,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         </div>
         <!-- Services End -->
-
-
-<!-- Safari Itinerary Start -->
-<div class="container py-5">
-  <div class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
-    <h5 class="sub-title text-primary px-3">9 DAYS SAFARI ITINERARY</h5>
-    <h1 class="display-6 fw-bold">Explore Tanzania – $5,200 (2 People)</h1>
-  </div>
-
-  <div class="row g-4">
-    <!-- Loop Each Day -->
-    <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-      <div class="p-4 border rounded shadow-sm bg-light h-100">
-        <h5 class="text-primary fw-bold">Day 1: Zanzibar / Dar</h5>
-        <ul class="mb-0">
-          <li>Pick up from hotel in Zanzibar to airport for flight to Dar es Salaam (flight not included).</li>
-          <li>Overnight at Onomo Hotel (Not included).</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="0.2s">
-      <div class="p-4 border rounded shadow-sm bg-light h-100">
-        <h5 class="text-primary fw-bold">Day 2: Boat Safari in Rufiji River</h5>
-        <ul class="mb-0">
-          <li>Drive to Selous Game Reserve. Boat ride in Rufiji River with chances to see hippos, crocodiles, and more.</li>
-          <li>Overnight: African Safari Camp.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
-      <div class="p-4 border rounded shadow-sm bg-light h-100">
-        <h5 class="text-primary fw-bold">Day 3: Full Day Game Drive</h5>
-        <ul class="mb-0">
-          <li>Full day safari in Selous in search of elephants, lions, leopards, wild dogs, etc.</li>
-          <li>Overnight: African Safari Camp.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="0.4s">
-      <div class="p-4 border rounded shadow-sm bg-light h-100">
-        <h5 class="text-primary fw-bold">Day 4: Walking Safari & Return to Dar</h5>
-        <ul class="mb-0">
-          <li>Early morning guided walk with ranger (2–3 hrs).</li>
-          <li>Return to Dar es Salaam. Overnight at Onomo Hotel.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
-      <div class="p-4 border rounded shadow-sm bg-light h-100">
-        <h5 class="text-primary fw-bold">Day 5: Dar to Arusha – Tarangire Safari</h5>
-        <ul class="mb-0">
-          <li>Flight to Arusha. Safari in Tarangire National Park.</li>
-          <li>Overnight at Fanaka Lodge.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="0.6s">
-      <div class="p-4 border rounded shadow-sm bg-light h-100">
-        <h5 class="text-primary fw-bold">Day 6: Ngorongoro Crater Safari</h5>
-        <ul class="mb-0">
-          <li>Full day game drive in Ngorongoro Crater with picnic lunch.</li>
-          <li>Visit Lake Magadi for flamingos and hippos.</li>
-          <li>Overnight at Sanna Boutique.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="0.7s">
-      <div class="p-4 border rounded shadow-sm bg-light h-100">
-        <h5 class="text-primary fw-bold">Day 7: Materuni Waterfalls & Coffee Tour</h5>
-        <ul class="mb-0">
-          <li>Visit waterfall, swim in the natural pool, see local fruit & farming.</li>
-          <li>Enjoy a traditional coffee-making experience.</li>
-          <li>Overnight at Keys Hotel (Moshi).</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="0.8s">
-      <div class="p-4 border rounded shadow-sm bg-light h-100">
-        <h5 class="text-primary fw-bold">Day 8: Kilimanjaro Day Hike</h5>
-        <ul class="mb-0">
-          <li>Trip to Marangu Gate, walk to Mandara Hut and Maundi Crater.</li>
-          <li>Return to hotel. Overnight at Keys Hotel.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-12 col-lg-6 mx-auto wow fadeInUp" data-wow-delay="0.9s">
-      <div class="p-4 border rounded shadow-sm bg-light h-100">
-        <h5 class="text-primary fw-bold">Day 9: Departure</h5>
-        <ul class="mb-0">
-          <li>4:00 PM pickup from the hotel to the airport for departure.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Safari Itinerary End -->
 
 
 <!-- Testimonial Start -->
@@ -774,7 +625,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </div>
 <!-- Tour Booking End -->
 
-<!-- Footer Start -->
+        <!-- Footer Start -->
 <div class="container-fluid footer py-5 wow fadeIn" data-wow-delay="0.2s" style="background-color:#222;">
     <div class="container py-5">
         <div class="row g-5">
@@ -782,23 +633,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="col-md-6 col-lg-6 col-xl-3">
                 <div class="footer-item d-flex flex-column">
                     <h4 class="text-secondary mb-4">Contact Info</h4>
-                    <a href="https://goo.gl/maps/your-location" target="_blank" class="text-white mb-2">
-                        <i class="fa fa-map-marker-alt me-2"></i> 123 Safari Road, Arusha, Tanzania</a>
-                    <a href="mailto:info@auntievee.com" class="text-white mb-2">
-                        <i class="fas fa-envelope me-2"></i> info@auntievee.com</a>
-                    <a href="tel:0687789424" class="text-white mb-2">
-                        <i class="fas fa-phone me-2"></i> 068 778 9424</a>
-                </div>
-            </div>
-
-            <!-- Social Media -->
-            <div class="col-md-6 col-lg-6 col-xl-3">
-                <div class="footer-item">
-                    <h4 class="text-secondary mb-4">Follow Us</h4>
-                    <p class="text-white mb-3">Stay connected with us on social media for amazing travel content and deals.</p>
+                    <a href="https://goo.gl/maps/your-location" target="_blank" class="text-white mb-2"><i class="fa fa-map-marker-alt me-2"></i> 123 Safari Road, Arusha, Tanzania</a>
+                    <a href="mailto:info@auntievee.com" class="text-white mb-2"><i class="fas fa-envelope me-2"></i> info@auntievee.com</a>
+                    <a href="tel:+255123456789" class="text-white mb-2"><i class="fas fa-phone me-2"></i> +255 123 456 789</a>
+                    <a href="fax:+255123456788" class="text-white mb-3"><i class="fas fa-print me-2"></i> +255 123 456 788</a>
                     <div class="d-flex align-items-center">
-                        <a class="btn btn-outline-light btn-sm mx-1" href="https://facebook.com/AuntieVeeAdventures" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-sm mx-1" href="https://instagram.com/auntieveeadventures" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <i class="fas fa-share fa-2x text-secondary me-3"></i>
+                        <a class="btn btn-outline-light btn-sm mx-1" href="https://facebook.com/auntievee" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-sm mx-1" href="https://twitter.com/auntievee" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-outline-light btn-sm mx-1" href="https://instagram.com/auntievee" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-outline-light btn-sm mx-1" href="https://linkedin.com/company/auntievee" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
             </div>
@@ -834,244 +678,48 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <a href="#" class="text-white mb-2"><i class="fas fa-angle-right me-2"></i> Customized Itineraries</a>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
 
-<!-- Copyright Start -->
-<div class="container-fluid copyright py-4" style="background-color: #111;">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-auto text-center text-white">
-                Designed by <a class="border-bottom text-white text-decoration-none" href="https://jaftech.co.tz/" target="_blank">JAFTECH INVESTMENT COMPANY LIMITED</a>
+            <!-- Newsletter -->
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="footer-item">
+                    <h4 class="text-secondary mb-4">Newsletter</h4>
+                    <p class="text-white mb-3">
+                        Subscribe to our newsletter and stay updated on latest safari deals, cultural events, and travel tips.
+                    </p>
+                    <div class="position-relative mx-auto rounded-pill">
+                        <input class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5" type="email" placeholder="Enter your email">
+                        <button type="button" class="btn btn-primary rounded-pill position-absolute top-0 end-0 py-2 mt-2 me-2">Sign Up</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
-<!-- Copyright End -->
-
-
-<!-- CHATBOT CODE BEGINS -->
-<div class="chatbot-icon">
-    <i class="fas fa-comments"></i>
-</div>
-
-
-<div class="chat-window">
-    <div class="chat-window-header">Chat with Auntie Vee Adventures</div>
-    <div class="chat-window-body" id="chatBody"></div>
-    <div class="chat-window-footer">
-        <input type="text" id="chatInput" placeholder="Type a message...">
-        <button id="sendButton">Send</button>
-    </div>
-</div>
-</div>
-<!-- CHATBOT CODE ENDS -->
-
-
-     
-         <!-- WhatsApp Icon -->
-        <a href="https://wa.me/255687789424" target="_blank" class="whatsapp-float" title="Chat with us on WhatsApp">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-
-        <!-- Translator -->
-        <?php include 'translator.php'; ?>
-
+<!-- Footer End -->
+        
+        <!-- Copyright Start -->
+        <div class="container-fluid copyright py-4">
+            <div class="container">
+                <div class="row g-4 align-items-center">
+                    <div class="col-md-6 text-center text-md-start mb-md-0">
+                        <span class="text-white"><a href="#" class="border-bottom text-white"><i class="fas fa-copyright text-light me-2"></i>Your Site Name</a>, All right reserved.</span>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end text-white">
+                        <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
+                        <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
+                        <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
+                        Designed By <a class="border-bottom text-white" href="https://htmlcodex.com">HTML Codex</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright End -->
 
 
         <!-- Back to Top -->
-        <a href="#" class="btn btn-primary btn-lg-square back-to-top"><i class="fa fa-arrow-up"></i></a> 
+        <a href="#" class="btn btn-primary btn-lg-square back-to-top"><i class="fa fa-arrow-up"></i></a>   
+
         
-       
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const chatbotIcon = document.querySelector('.chatbot-icon');
-    const chatWindow = document.querySelector('.chat-window');
-    const chatBody = document.getElementById('chatBody');
-    const chatInput = document.getElementById('chatInput');
-    const sendButton = document.getElementById('sendButton');
-    const chatIcon = document.querySelector('.chatbot-icon i');
-    const welcomeMessage = document.querySelector('.chatbot-welcome-message');
-
-    const userAvatar = 'img/3.png';
-    const botAvatar = 'img/3.png';
-
-    // Show welcome message (with null check)
-    if (welcomeMessage) {
-        welcomeMessage.style.display = 'block';
-        setTimeout(() => {
-            welcomeMessage.style.display = 'none';
-        }, 5000);
-    }
-
-    chatbotIcon.addEventListener('click', () => {
-        if (chatWindow.style.display === 'none' || chatWindow.style.display === '') {
-            chatWindow.style.display = 'block';
-            chatIcon.classList.remove('fa-comments');
-            chatIcon.classList.add('fa-times');
-            if (welcomeMessage) welcomeMessage.style.display = 'none';
-            setTimeout(() => {
-                appendMessage('bot', 'Hello! 👋 Welcome to Auntie Vee Adventures. How can we assist you today?', botAvatar);
-            }, 500);
-        } else {
-            chatWindow.style.display = 'none';
-            chatIcon.classList.remove('fa-times');
-            chatIcon.classList.add('fa-comments');
-        }
-    });
-
-    sendButton.addEventListener('click', sendMessage);
-    chatInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            sendMessage();
-        }
-    });
-
-    function sendMessage() {
-        const message = chatInput.value.trim().toLowerCase();
-        if (message !== '') {
-            appendMessage('user', message, userAvatar);
-            chatInput.value = '';
-
-            setTimeout(() => {
-                let botMessage;
-
-                if (["hello", "hi", "hellow", "hey"].includes(message)) {
-                    botMessage = "Hi there! 😊 How can we help you today at Auntie Vee Adventures?";
-                } else if (["mambo", "habari", "za uko", "za kazi", "inakuaje", "kwema"].some(greet => message.includes(greet))) {
-                    botMessage = "Salama kabisa! Karibu Auntie Vee Adventures, tupo kwa ajili yako.";
-                } else if (message.includes("assalam")) {
-                    botMessage = "Walayqum salaam! Unakaribishwa sana.";
-                } else if (message.includes("what do you do") || message.includes("services")) {
-                    botMessage = "We offer wildlife safaris, beach holidays, cultural tours, and more!";
-                } else if (message.includes("where are you") || message.includes("location")) {
-                    botMessage = "We're based in Arusha, Tanzania 🗺️ — the heart of adventure!";
-                } else if (message.includes("contact") || message.includes("phone")) {
-                    botMessage = "You can reach us via WhatsApp at 📞 +255 758 906 071 or email us at info@auntievee.com.";
-                } else if (message.includes("website")) {
-                    botMessage = "Visit our official site at 🌐 [auntievee.com](https://auntievee.com)";
-                } else if (message.includes("how can i volunteer") || message.includes("volunteer")) {
-                    botMessage = "Thanks for your interest! Please contact us on WhatsApp to learn more about volunteering.";
-                } else if (message.includes("i am from dubai") || message.includes("package from dubai")) {
-                    botMessage = "Welcome! 🌍 Auntie Vee Adventures has great safari packages for international travelers. Let us know your preferences!";
-                } else if (message.includes("is it safe") || message.includes("safety")) {
-                    botMessage = "Yes! Your safety is our top priority. Our guides are professional and fully trained. 🛡️🦓";
-                } else if (message.includes("booking") || message.includes("book a tour") || message.includes("how to book")) {
-                    botMessage = "Booking is easy! Just send us a WhatsApp message or use the form on our website. ✅";
-                } else if (message.includes("cost") || message.includes("how much") || message.includes("price")) {
-                    botMessage = "Prices vary by package. Let us know the destination and number of days for an accurate quote. 💰";
-                } else if (message.includes("day trip") || message.includes("how many days") || message.includes("duration")) {
-                    botMessage = "We offer 1-day trips, weekend getaways, and week-long safari experiences. 🏕️🐘";
-                } else if (message.includes("package") || message.includes("tour package") || message.includes("what's included")) {
-                    botMessage = "All packages include transport, meals, accommodation, and guided tours. 🧳📦";
-                } else if (message.includes("accommodation") || message.includes("where will i stay") || message.includes("hotel")) {
-                    botMessage = "We work with top lodges and hotels to make sure you're always comfortable. 🏨🌴";
-                } else if (message.includes("condition") || message.includes("weather") || message.includes("climate")) {
-                    botMessage = "Tanzania's weather is warm and sunny most of the year — perfect for adventures! ☀️🌿";
-                } else {
-                    botMessage = "Thanks for your message! 🌟 Please WhatsApp us directly at +255 758 906 071 or ask a specific question.";
-                }
-
-                appendMessage('bot', botMessage, botAvatar);
-            }, 1000);
-        }
-    }
-
-    function appendMessage(sender, message, avatar) {
-        const messageContainer = document.createElement('div');
-        messageContainer.classList.add('message-container', sender);
-
-        const profileImage = document.createElement('img');
-        profileImage.classList.add('profile-image');
-        profileImage.src = avatar;
-
-        const messageElement = document.createElement('div');
-        messageElement.classList.add('message', sender);
-        messageElement.textContent = message;
-
-        if (sender === 'user') {
-            messageContainer.appendChild(messageElement);
-            messageContainer.appendChild(profileImage);
-        } else {
-            messageContainer.appendChild(profileImage);
-            messageContainer.appendChild(messageElement);
-        }
-
-        chatBody.appendChild(messageContainer);
-        chatBody.scrollTop = chatBody.scrollHeight;
-    }
-});
-</script>
-
-<!-- SweetAlert2 -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<?php if ($submitted): ?>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        Swal.fire({
-            icon: <?= $success ? "'success'" : "'error'" ?>,
-            title: <?= $success ? "'Booking Confirmed!'" : "'Booking Failed'" ?>,
-            text: <?= $success 
-                ? json_encode("Thank you, $full_name. We'll contact you shortly!") 
-                : json_encode("Something went wrong. Please try again later.") ?>,
-            confirmButtonColor: '#ffa500'
-        });
-    });
-</script>
-<?php endif; ?>
-
-<script>
-document.getElementById('searchForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    const query = document.getElementById('searchInput').value.toLowerCase().trim();
-
-    const searchMap = {
-        'wildlife': 'wildlifesafaris.php',
-        'safari': 'wildlifesafaris.php',
-        'national park': 'wildlifesafaris.php',
-        'zanzibar': 'island.php',
-        'island': 'island.php',
-        'beach': 'island.php',
-        'pemba': 'island.php',
-        'mafia': 'island.php',
-        'mountain': 'mountain-trekking.php',
-        'kilimanjaro': 'mountain-trekking.php',
-        'meru': 'mountain-trekking.php',
-        'trek': 'mountain-trekking.php',
-        'hike': 'mountain-trekking.php',
-        'culture': 'cultural.php',
-        'cultural': 'cultural.php',
-        'bike': 'cultural.php',
-        'night': 'cultural.php',
-        'bird': 'cultural.php',
-        'birds': 'cultural.php'
-    };
-
-    let matched = null;
-    for (const keyword in searchMap) {
-        if (query.includes(keyword)) {
-            matched = searchMap[keyword];
-            break;
-        }
-    }
-
-    if (matched) {
-        window.location.href = matched;
-    } else {
-        Swal.fire({
-            icon: 'error',
-            title: 'Not Found',
-            text: 'Sorry, we could not find a match for your search.',
-            confirmButtonColor: '#dc3545'
-        });
-    }
-});
-</script>
-
-
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -1082,7 +730,7 @@ document.getElementById('searchForm').addEventListener('submit', function (e) {
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     
 
-    <!-- Main Javascript -->
+    <!-- Template Javascript -->
     <script src="js/mains.js"></script>
     </body>
 
