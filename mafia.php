@@ -3,12 +3,11 @@
 $submitted = false;
 $success = false;
 
+// Include database connection
+include 'includes/db_config.php';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Database credentials
-    $host = "localhost";
-    $dbname = "Adv";
-    $username = "root";
-    $password = "";
+
 
     // Create connection
     $conn = new mysqli($host, $username, $password, $dbname);

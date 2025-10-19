@@ -15,7 +15,7 @@
 
 
     <!-- ======= Styles ====== -->
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/styless.css">
     <!-- DataTables Scroll CSS (Optional but good for appearance) -->
     <style>
         table.dataTable {
@@ -74,15 +74,6 @@
                             <ion-icon name="calendar-outline"></ion-icon>
                         </span>
                         <span class="title">Bookings</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="blog.php">
-                        <span class="icon">
-                            <ion-icon name="newspaper-outline"></ion-icon>
-                        </span>
-                        <span class="title">Blogs</span>
                     </a>
                 </li>
 
@@ -149,11 +140,7 @@
             </thead>
             <tbody>
                 <?php
-                $host = "localhost";
-                $dbname = "Adv";
-                $username = "root";
-                $password = "";
-
+                include 'includes/db_config.php';
                 $conn = new mysqli($host, $username, $password, $dbname);
 
                 if ($conn->connect_error) {

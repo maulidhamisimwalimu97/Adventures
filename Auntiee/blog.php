@@ -12,7 +12,7 @@
         <link rel="icon" type="image/png" href="assets/imgs/alogo.png">
         
     <!-- ======= Styles ====== -->
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/styless.css">
 </head>
 
 <body>

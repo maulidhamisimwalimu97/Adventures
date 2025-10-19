@@ -6,10 +6,7 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-$host = "localhost";
-$dbname = "Adv";
-$username = "root";
-$password = "";
+include 'includes/db_config.php';
 
 $conn = new mysqli($host, $username, $password, $dbname);
 if ($conn->connect_error) {

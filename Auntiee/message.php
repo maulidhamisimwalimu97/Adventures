@@ -15,7 +15,7 @@
 
 
     <!-- ======= Styles ====== -->
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/styless.css">
   
 </head>
 
@@ -71,15 +71,6 @@
                 </li>
 
                 <li>
-                    <a href="blog.php">
-                        <span class="icon">
-                            <ion-icon name="newspaper-outline"></ion-icon>
-                        </span>
-                        <span class="title">Blogs</span>
-                    </a>
-                </li>
-
-                <li>
                     <a href="change-password.php">
                         <span class="icon">
                             <ion-icon name="lock-closed-outline"></ion-icon>
@@ -124,53 +115,57 @@
             </div>
 
 <!-- ============ message Table ============= -->
-<div class="card" style="margin: 20px;">
-    <h2 style="margin-bottom: 15px; text-align:center;">All Message</h2>
-    <div class="table-responsive">
-        <table id="customersTable" class="display" style="width: 100%;">
-            <thead>
-                <tr>
-                    <th>Full Name</th>
-                    <th>Email</th>
-                    <th>Subject</th>
-                    <th>Message</th>
-                    <th>Date</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                $host = "localhost";
-                $dbname = "Adv";
-                $username = "root";
-                $password = "";
+        <div class="card" style="margin: 20px;">
+            <h2 style="margin-bottom: 15px; text-align:center;">All Message</h2>
+            <div class="table-responsive">
+                <table id="customersTable" class="display" style="width: 100%;">
+                    <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Subject</th>
+                <th>Message</th>
+                <th>Date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            include 'includes/db_config.php';
 
-                $conn = new mysqli($host, $username, $password, $dbname);
+            $conn = new mysqli($host, $username, $password, $dbname);
 
-                if ($conn->connect_error) {
-                    echo "<tr><td colspan='3'>Connection failed: " . $conn->connect_error . "</td></tr>";
-                } else {
-                    $sql = "SELECT  full_name, email,subject,message,created_at FROM contact ORDER BY id DESC";
-                    $result = $conn->query($sql);
+            if ($conn->connect_error) {
+                echo "<tr><td colspan='6'>Connection failed: " . $conn->connect_error . "</td></tr>";
+            } else {
+                $sql = "SELECT id, full_name, email, subject, message, created_at FROM contact ORDER BY id DESC";
+                $result = $conn->query($sql);
 
-                    if ($result->num_rows > 0) {
-                        while ($row = $result->fetch_assoc()) {
-                            echo "<tr>
-                                <td>" . htmlspecialchars($row['full_name']) . "</td>
-                                <td>" . htmlspecialchars($row['email']) . "</td>
-                                <td>" . htmlspecialchars($row['subject']) . "</td>
-                                <td>" . htmlspecialchars($row['message']) . "</td>
-                                <td>" . htmlspecialchars($row['created_at']) . "</td>
-
-                                  </tr>";
-                        }
-                    } else {
-                        echo "<tr><td colspan='3'>No message found.</td></tr>";
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<tr>
+                            <td>" . htmlspecialchars($row['full_name']) . "</td>
+                            <td>" . htmlspecialchars($row['email']) . "</td>
+                            <td>" . htmlspecialchars($row['subject']) . "</td>
+                            <td>" . htmlspecialchars($row['message']) . "</td>
+                            <td>" . htmlspecialchars($row['created_at']) . "</td>
+                            <td>
+                                <a href='delete_message.php?id=" . $row['id'] . "' 
+                                onclick=\"return confirm('Are you sure you want to delete this message?');\" 
+                                style='color: red; font-size: 18px;'>
+                                <ion-icon name='trash-outline'></ion-icon>
+                                </a>
+                            </td>
+                        </tr>";
                     }
-
-                    $conn->close();
+                } else {
+                    echo "<tr><td colspan='6'>No message found.</td></tr>";
                 }
-                ?>
-            </tbody>
+
+                $conn->close();
+            }
+            ?>
+        </tbody>
         </table>
     </div>
 </div>

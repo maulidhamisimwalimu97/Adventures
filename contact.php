@@ -5,12 +5,10 @@ error_reporting(E_ALL);
 
 $success = false;
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $conn = new mysqli("localhost", "root", "", "Adv");
+// Include database connection
+include 'includes/db_config.php';
 
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $full_name = $conn->real_escape_string($_POST["name"]);
     $email     = $conn->real_escape_string($_POST["email"]);

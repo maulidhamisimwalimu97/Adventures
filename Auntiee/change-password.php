@@ -13,7 +13,7 @@
         <link rel="icon" type="image/png" href="assets/imgs/2.jpg">
         
     <!-- ======= Styles ====== -->
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/styless.css">
 </head>
 
 <body>
@@ -64,15 +64,6 @@
                             <ion-icon name="calendar-outline"></ion-icon>
                         </span>
                         <span class="title">Bookings</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="blog.php">
-                        <span class="icon">
-                            <ion-icon name="newspaper-outline"></ion-icon>
-                        </span>
-                        <span class="title">Blogs</span>
                     </a>
                 </li>
 

@@ -3,47 +3,35 @@
 $submitted = false;
 $success = false;
 
+// Include database connection
+include 'includes/db_config.php';
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Database credentials
-    $host = "localhost";
-    $dbname = "Adv";
-    $username = "root";
-    $password = "";
 
-    // Create connection
-    $conn = new mysqli($host, $username, $password, $dbname);
+    // Retrieve and sanitize form data
+    $tour_name = $_POST['tour_name'];
+    $full_name = $_POST['full_name'];
+    $email = $_POST['email'];
+    $arrival_date = $_POST['arrival_date'];
+    $number_of_adults = $_POST['number_of_adults'];
+    $number_of_children = $_POST['number_of_children'];
+    $special_requests = $_POST['special_requests'];
 
-    // Check connection
-    if ($conn->connect_error) {
-        $submitted = true;
-        $success = false;
+    // Prepare SQL insert
+    $stmt = $conn->prepare("INSERT INTO booking (tour_name, full_name, email, arrival_date, number_of_adults, number_of_children, special_requests) VALUES (?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssiis", $tour_name, $full_name, $email, $arrival_date, $number_of_adults, $number_of_children, $special_requests);
+
+    if ($stmt->execute()) {
+        $success = true;
     } else {
-        // Retrieve and sanitize form data
-        $tour_name = $_POST['tour_name'];
-        $full_name = $_POST['full_name'];
-        $email = $_POST['email'];
-        $arrival_date = $_POST['arrival_date'];
-        $number_of_adults = $_POST['number_of_adults'];
-        $number_of_children = $_POST['number_of_children'];
-        $special_requests = $_POST['special_requests'];
-
-        // Prepare SQL insert
-        $stmt = $conn->prepare("INSERT INTO booking (tour_name, full_name, email, arrival_date, number_of_adults, number_of_children, special_requests) VALUES (?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("ssssiis", $tour_name, $full_name, $email, $arrival_date, $number_of_adults, $number_of_children, $special_requests);
-
-        if ($stmt->execute()) {
-            $success = true;
-        } else {
-            $success = false;
-        }
-
-        $submitted = true;
-        $stmt->close();
-        $conn->close();
+        $success = false;
     }
+
+    $submitted = true;
+    $stmt->close();
+    $conn->close();
 }
 ?>
-
 
 
 <!DOCTYPE html>
@@ -384,108 +372,180 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <!-- Services End -->
 
 
-<!-- Safari Itinerary Start -->
+<!-- ======================== -->
+<!-- Safari Itineraries Start -->
+<!-- ======================== -->
 <div class="container py-5">
+  <!-- Section Header -->
   <div class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
-    <h5 class="sub-title text-primary px-3">9 DAYS SAFARI ITINERARY</h5>
-    <h1 class="display-6 fw-bold">Explore Tanzania – $5,200 (2 People)</h1>
+    <h5 class="sub-title text-primary px-3">SAFARI PACKAGES</h5>
+    <h1 class="display-6 fw-bold">Auntie Vee Adventures – Experience Tanzania</h1>
+    <p class="text-muted mt-3">Choose your dream safari adventure — from Mikumi to Serengeti and beyond.</p>
   </div>
 
-  <div class="row g-4">
-    <!-- Loop Each Day -->
-    <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-      <div class="p-4 border rounded shadow-sm bg-light h-100">
-        <h5 class="text-primary fw-bold">Day 1: Zanzibar / Dar</h5>
-        <ul class="mb-0">
-          <li>Pick up from hotel in Zanzibar to airport for flight to Dar es Salaam (flight not included).</li>
-          <li>Overnight at Onomo Hotel (Not included).</li>
-        </ul>
+  <!-- 3 DAYS MIKUMI SAFARI -->
+  <div class="mb-5">
+    <div class="text-center mb-4 wow fadeInUp" data-wow-delay="0.1s">
+      <h5 class="sub-title text-primary px-3">3 DAYS 2 NIGHTS</h5>
+      <h2 class="fw-bold">Mikumi Safari from Zanzibar</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="p-4 border rounded bg-light shadow-sm h-100">
+          <h5 class="text-primary fw-bold">Day 1: Game Drive</h5>
+          <ul>
+            <li>5:00 AM Pickup from hotel to Stone Town for ferry to Dar.</li>
+            <li>Transfer by train to Morogoro and drive to Mikumi Park.</li>
+            <li>Lunch and afternoon game drive till 6:30 PM.</li>
+            <li>Overnight: Camp Lilac Mikumi.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
+        <div class="p-4 border rounded bg-light shadow-sm h-100">
+          <h5 class="text-primary fw-bold">Day 2: Full Day Safari</h5>
+          <ul>
+            <li>Early breakfast and full-day game drive.</li>
+            <li>Lunch at park restaurant, visit Masai Village after sunset.</li>
+            <li>Overnight: Camp Lilac Mikumi.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+        <div class="p-4 border rounded bg-light shadow-sm h-100">
+          <h5 class="text-primary fw-bold">Day 3: Return to Zanzibar</h5>
+          <ul>
+            <li>Breakfast and transfer back to Morogoro Station.</li>
+            <li>Train to Dar, ferry to Zanzibar, and hotel drop-off.</li>
+          </ul>
+        </div>
       </div>
     </div>
 
-    <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="0.2s">
-      <div class="p-4 border rounded shadow-sm bg-light h-100">
-        <h5 class="text-primary fw-bold">Day 2: Boat Safari in Rufiji River</h5>
-        <ul class="mb-0">
-          <li>Drive to Selous Game Reserve. Boat ride in Rufiji River with chances to see hippos, crocodiles, and more.</li>
-          <li>Overnight: African Safari Camp.</li>
-        </ul>
+    <div class="mt-4 text-center">
+      <h6 class="fw-bold text-uppercase text-primary">Included:</h6>
+      <p class="fw-bold mb-0">
+        • Full-board accommodation &nbsp; • Water in safari &nbsp; • Park entrances &nbsp; • Professional guide <br>
+        • 4x4 Safari Car &nbsp; • Train Tickets &nbsp; • Boat Tickets &nbsp; • Transfers
+      </p>
+    </div>
+  </div>
+
+  <!-- 2 DAYS TARANGIRE + NGORONGORO -->
+  <div class="mb-5">
+    <div class="text-center mb-4 wow fadeInUp" data-wow-delay="0.1s">
+      <h5 class="sub-title text-primary px-3">2 DAYS 1 NIGHT</h5>
+      <h2 class="fw-bold">Tarangire & Ngorongoro Crater Safari</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="p-4 border rounded bg-light shadow-sm h-100">
+          <h5 class="text-primary fw-bold">Day 1: Zanzibar to Tarangire</h5>
+          <ul>
+            <li>5:00 AM Pickup for flight to Arusha.</li>
+            <li>Full-day game drive in Tarangire National Park.</li>
+            <li>See baobab trees, elephants, lions, and more.</li>
+            <li>Dinner & overnight at lodge/camp.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.2s">
+        <div class="p-4 border rounded bg-light shadow-sm h-100">
+          <h5 class="text-primary fw-bold">Day 2: Ngorongoro Crater</h5>
+          <ul>
+            <li>Early descent into the crater for a full-day tour.</li>
+            <li>See rhinos, lions, elephants, and flamingos at Lake Magadi.</li>
+            <li>Picnic lunch at Hippo Pool.</li>
+            <li>Evening flight back to Zanzibar.</li>
+          </ul>
+        </div>
       </div>
     </div>
 
-    <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
-      <div class="p-4 border rounded shadow-sm bg-light h-100">
-        <h5 class="text-primary fw-bold">Day 3: Full Day Game Drive</h5>
-        <ul class="mb-0">
-          <li>Full day safari in Selous in search of elephants, lions, leopards, wild dogs, etc.</li>
-          <li>Overnight: African Safari Camp.</li>
-        </ul>
+    <div class="mt-4 text-center">
+      <h6 class="fw-bold text-uppercase text-primary">Included:</h6>
+      <p class="fw-bold mb-0">
+        • Flight tickets &nbsp; • Park entry fees &nbsp; • Full-board accommodation &nbsp; • 4x4 Safari vehicle <br>
+        • Professional guide &nbsp; • Meals &nbsp; • Drinking water
+      </p>
+    </div>
+  </div>
+
+  <!-- 3 DAYS SERENGETI + NGORONGORO -->
+  <div class="mb-5">
+    <div class="text-center mb-4 wow fadeInUp" data-wow-delay="0.1s">
+      <h5 class="sub-title text-primary px-3">3 DAYS PRIVATE SAFARI</h5>
+      <h2 class="fw-bold">Zanzibar to Serengeti (Direct Flight)</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="p-4 border rounded bg-light shadow-sm h-100">
+          <h5 class="text-primary fw-bold">Day 1: Zanzibar to Serengeti</h5>
+          <ul>
+            <li>Early flight to Seronera Airstrip (1.5–2 hrs).</li>
+            <li>Game drive with packed lunch upon arrival.</li>
+            <li>See elephants, lions, giraffes, wildebeest, and zebras.</li>
+            <li>Overnight at Mawe Tented Camp or Osero Camp.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
+        <div class="p-4 border rounded bg-light shadow-sm h-100">
+          <h5 class="text-primary fw-bold">Day 2: Full Day in Serengeti</h5>
+          <ul>
+            <li>Morning & afternoon game drives in Serengeti plains.</li>
+            <li>Witness the Great Migration & Big Five.</li>
+            <li>Overnight: Mawe Tented Camp or Osero Camp.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+        <div class="p-4 border rounded bg-light shadow-sm h-100">
+          <h5 class="text-primary fw-bold">Day 3: Ngorongoro Crater</h5>
+          <ul>
+            <li>Drive to Ngorongoro for full-day crater tour.</li>
+            <li>Visit Lake Magadi for flamingos and hippos.</li>
+            <li>Evening flight back to Zanzibar.</li>
+          </ul>
+        </div>
       </div>
     </div>
 
-    <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="0.4s">
-      <div class="p-4 border rounded shadow-sm bg-light h-100">
-        <h5 class="text-primary fw-bold">Day 4: Walking Safari & Return to Dar</h5>
-        <ul class="mb-0">
-          <li>Early morning guided walk with ranger (2–3 hrs).</li>
-          <li>Return to Dar es Salaam. Overnight at Onomo Hotel.</li>
-        </ul>
-      </div>
+    <div class="mt-4 text-center">
+      <h6 class="fw-bold text-uppercase text-primary">Included:</h6>
+      <p class="fw-bold mb-0">
+        • Return flights &nbsp; • Accommodation &nbsp; • Park fees &nbsp; • Meals &nbsp; • Safari 4x4 Vehicle <br>
+        • Professional driver/guide &nbsp; • Water & soft drinks
+      </p>
     </div>
+  </div>
 
-    <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
-      <div class="p-4 border rounded shadow-sm bg-light h-100">
-        <h5 class="text-primary fw-bold">Day 5: Dar to Arusha – Tarangire Safari</h5>
-        <ul class="mb-0">
-          <li>Flight to Arusha. Safari in Tarangire National Park.</li>
-          <li>Overnight at Fanaka Lodge.</li>
-        </ul>
-      </div>
+  <!-- ZANZIBAR LUXURY SUNSET DHOW CRUISE -->
+  <div class="mb-5">
+    <div class="text-center mb-4 wow fadeInUp" data-wow-delay="0.1s">
+      <h5 class="sub-title text-primary px-3">ZANZIBAR EXPERIENCE</h5>
+      <h2 class="fw-bold">Luxury Sunset Dhow Cruise</h2>
     </div>
-
-    <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="0.6s">
-      <div class="p-4 border rounded shadow-sm bg-light h-100">
-        <h5 class="text-primary fw-bold">Day 6: Ngorongoro Crater Safari</h5>
-        <ul class="mb-0">
-          <li>Full day game drive in Ngorongoro Crater with picnic lunch.</li>
-          <li>Visit Lake Magadi for flamingos and hippos.</li>
-          <li>Overnight at Sanna Boutique.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="0.7s">
-      <div class="p-4 border rounded shadow-sm bg-light h-100">
-        <h5 class="text-primary fw-bold">Day 7: Materuni Waterfalls & Coffee Tour</h5>
-        <ul class="mb-0">
-          <li>Visit waterfall, swim in the natural pool, see local fruit & farming.</li>
-          <li>Enjoy a traditional coffee-making experience.</li>
-          <li>Overnight at Keys Hotel (Moshi).</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-12 col-lg-6 wow fadeInUp" data-wow-delay="0.8s">
-      <div class="p-4 border rounded shadow-sm bg-light h-100">
-        <h5 class="text-primary fw-bold">Day 8: Kilimanjaro Day Hike</h5>
-        <ul class="mb-0">
-          <li>Trip to Marangu Gate, walk to Mandara Hut and Maundi Crater.</li>
-          <li>Return to hotel. Overnight at Keys Hotel.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="col-12 col-lg-6 mx-auto wow fadeInUp" data-wow-delay="0.9s">
-      <div class="p-4 border rounded shadow-sm bg-light h-100">
-        <h5 class="text-primary fw-bold">Day 9: Departure</h5>
-        <ul class="mb-0">
-          <li>4:00 PM pickup from the hotel to the airport for departure.</li>
-        </ul>
-      </div>
+    <div class="p-4 border rounded bg-light shadow-sm wow fadeInUp" data-wow-delay="0.2s">
+      <p>
+        Set sail at <strong>4:30 PM</strong> aboard a traditional Swahili dhow and experience the stunning Zanzibar sunset with music, refreshments, and unmatched Indian Ocean views.
+      </p>
+      <ul>
+        <li>Duration: 2–3 hours</li>
+        <li>Includes drinks, Swahili canapés, seafood dinner (veg options available)</li>
+        <li>Music on board & professional crew</li>
+        <li>Pickup from selected hotels (optional)</li>
+      </ul>
+      <p class="fw-bold mt-3 mb-0">
+        • 2–3 hour luxury cruise &nbsp; • Beverages & snacks &nbsp; • Live Swahili music &nbsp; • Safety equipment
+      </p>
     </div>
   </div>
 </div>
-<!-- Safari Itinerary End -->
+<!-- ====================== -->
+<!-- Safari Itineraries End -->
+<!-- ====================== -->
+
 
 
 <!-- Testimonial Start -->
