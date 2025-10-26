@@ -1,3 +1,17 @@
+<?php
+session_start();
+
+// Block browser caching
+header("Cache-Control: no-cache, no-store, must-revalidate");
+header("Pragma: no-cache");
+header("Expires: 0");
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php?error=please_login");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -182,7 +196,7 @@
         }
         $conn->close();
         ?>
-        <a href="news.php" class="card">
+        <a href="" class="card">
             <div>
                 <div class="numbers"><?= $blogCount ?></div>
                 <div class="cardName">Blog Posts</div>

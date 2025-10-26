@@ -137,7 +137,7 @@
                                         </div>
                                         <div class="d-flex flex-column justify-content-center">
                                             <span class="text-primary">Have any questions?</span>
-                                            <span class="text-secondary fw-bold fs-5" style="letter-spacing: 2px;">Call: +255 123 456 789</span>
+                                            <span class="text-secondary fw-bold fs-5" style="letter-spacing: 2px;">Call: +255 687 789 424</span>
                                         </div>
                                     </div>
                                 </div>

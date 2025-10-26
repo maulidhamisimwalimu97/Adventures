@@ -277,7 +277,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                         </div>
                                         <div class="d-flex flex-column justify-content-center">
                                             <span class="text-primary">Have any questions?</span>
-                                            <span class="text-secondary fw-bold fs-5" style="letter-spacing: 2px;">Call: +255 123 456 789</span>
+                                            <span class="text-secondary fw-bold fs-5" style="letter-spacing: 2px;">Call: +255 687 789 424</span>
                                         </div>
                                     </div>
                                 </div>
@@ -540,6 +540,90 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         • 2–3 hour luxury cruise &nbsp; • Beverages & snacks &nbsp; • Live Swahili music &nbsp; • Safety equipment
       </p>
     </div>
+  </div>
+</div>
+
+<!-- 4 DAYS SERENGETI SAFARI -->
+<div class="mb-5">
+  <div class="text-center mb-4 wow fadeInUp" data-wow-delay="0.1s">
+    <h5 class="sub-title text-primary px-3">4 DAYS 3 NIGHTS</h5>
+    <h2 class="fw-bold">Serengeti Safari from Arusha</h2>
+    <p class="text-muted mt-2">
+      Prices vary depending on the season: July to October (Peak Season) and April to Mid June (Low Season).
+    </p>
+    <p class="fw-semibold">3 Nights Serengeti</p>
+  </div>
+
+  <div class="row g-4">
+    <!-- Day 1 -->
+    <div class="col-lg-3 wow fadeInUp" data-wow-delay="0.1s">
+      <div class="p-4 border rounded bg-light shadow-sm h-100">
+        <h5 class="text-primary fw-bold">Day 1: Arusha to Serengeti</h5>
+        <ul>
+          <li>8:00 AM departure from Arusha in private 4x4 Landcruiser.</li>
+          <li>Scenic 6.5 hour drive to Serengeti National Park.</li>
+          <li>Lunch on arrival then afternoon game drive up to 6:30 PM.</li>
+          <li>Search for Big Cats and the Big Nine wildlife species.</li>
+          <li>Overnight: Serengeti Serena Lodge or Melia Serengeti.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Day 2 -->
+    <div class="col-lg-3 wow fadeInUp" data-wow-delay="0.2s">
+      <div class="p-4 border rounded bg-light shadow-sm h-100">
+        <h5 class="text-primary fw-bold">Day 2: Full Day Safari</h5>
+        <ul>
+          <li>Morning game drive (6:15 AM to 9:00 AM).</li>
+          <li>Afternoon game drive after lunch (3:30 PM to 6:30 PM).</li>
+          <li>Option for a full-day safari with picnic lunch.</li>
+          <li>Overnight: Serengeti Serena Lodge or Melia Serengeti.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Day 3 -->
+    <div class="col-lg-3 wow fadeInUp" data-wow-delay="0.3s">
+      <div class="p-4 border rounded bg-light shadow-sm h-100">
+        <h5 class="text-primary fw-bold">Day 3: Explore Serengeti</h5>
+        <ul>
+          <li>Morning and afternoon game drives.</li>
+          <li>Optional: Hot Air Balloon Safari or Maasai Village visit.</li>
+          <li>Overnight: Serengeti Serena Lodge or Melia Serengeti.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Day 4 -->
+    <div class="col-lg-3 wow fadeInUp" data-wow-delay="0.4s">
+      <div class="p-4 border rounded bg-light shadow-sm h-100">
+        <h5 class="text-primary fw-bold">Day 4: Return to Arusha</h5>
+        <ul>
+          <li>Sunrise game drive then breakfast.</li>
+          <li>10:00 AM checkout and drive back to Arusha.</li>
+          <li>Arrival around 3:00 PM. Hotel or airport drop-off.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Inclusions -->
+  <div class="mt-4 text-center">
+    <h6 class="fw-bold text-uppercase text-primary">Included:</h6>
+    <p class="fw-bold mb-0">
+      • Full-board accommodation • Exclusive 4x4 Landcruiser • Private safari game drives <br>
+      • Professional English-speaking Guide • Park & Concession Fees <br>
+      • Soft drinks, water, teas & coffees • Fuel & Vehicle expenses • 24-hour ground support
+    </p>
+  </div>
+
+  <!-- Exclusions -->
+  <div class="mt-3 text-center">
+    <h6 class="fw-bold text-uppercase text-primary">Not Included:</h6>
+    <p class="fw-bold mb-0">
+      • International flights & visas • Tips & personal expenses <br>
+      • Premium drinks, cigars • Bank & card surcharges
+    </p>
   </div>
 </div>
 <!-- ====================== -->

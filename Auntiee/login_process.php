@@ -1,21 +1,11 @@
 <?php
 session_start();
 
-// Database configuration
-$host = "localhost";
-$dbname = "Adv";
-$username = "root";
-$password = "";
-
-$conn = new mysqli($host, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+// Include database configuration
+include 'includes/db_config.php';
 
 $email = $_POST['email'];
-$pass = sha1($_POST['password']); // Hash password with SHA1
+$pass = sha1($_POST['password']); // Hash password
 
 $sql = "SELECT * FROM user WHERE email = ?";
 $stmt = $conn->prepare($sql);
