@@ -630,6 +630,48 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!-- Safari Itineraries End -->
 <!-- ====================== -->
 
+<!-- 10 DAYS SAFARI & ZANZIBAR ISLAND GIRLS TRIP -->
+<div class="mb-5">
+  <div class="text-center mb-4 wow fadeInUp" data-wow-delay="0.1s">
+    <h5 class="sub-title text-primary px-3">GIRLS TRIP EXPERIENCE</h5>
+    <h2 class="fw-bold">10 Days Tanzania Safari & Zanzibar Island Girls’ Trip</h2>
+    <p class="text-muted mt-2">
+      Feb 19 – Feb 28, 2026 • Safari • Culture • Beach Escape
+    </p>
+  </div>
+
+  <div class="p-4 p-md-5 border rounded bg-light shadow-sm wow fadeInUp" data-wow-delay="0.2s">
+    <p>
+      Join us for an unforgettable <strong>10-day Girls’ Trip through Tanzania & Zanzibar</strong>,
+      blending thrilling wildlife safaris, rich cultural experiences, and pure island relaxation.
+      From Mikumi National Park to the white-sand beaches of Zanzibar, this journey is designed
+      for adventure, connection, and lifelong memories.
+    </p>
+
+    <ul class="mb-3">
+      <li>Duration: 10 Days / 9 Nights</li>
+      <li>Safari experience in Mikumi National Park</li>
+      <li>Zanzibar Island tours & beach relaxation</li>
+      <li>Private 4x4 Safari Vehicle</li>
+      <li>Professional tour guide (24/7 support)</li>
+      <li>Boat trips, island excursions & cultural visits</li>
+    </ul>
+
+    <p class="fw-bold mt-3 mb-0 text-center">
+      • Accommodations included &nbsp;
+      • Private transport & fuel &nbsp;
+      • Safari & island activities &nbsp;
+      • Unlimited bottled water &nbsp;
+      • Full-board Safari / B&B Zanzibar
+    </p>
+
+    <div class="text-center mt-4">
+      <a href="4days.php" class="btn btn-primary px-5">
+        View Full Trip Details & Register →
+      </a>
+    </div>
+  </div>
+</div>
 
 
 <!-- Testimonial Start -->
