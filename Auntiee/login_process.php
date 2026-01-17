@@ -22,11 +22,11 @@ if ($result->num_rows === 1) {
         header("Location: dashboard.php");
         exit();
     } else {
-        header("Location: login.php?error=incorrect_password");
+        header("Location: index.php?error=incorrect_password");
         exit();
     }
 } else {
-    header("Location: login.php?error=user_not_found");
+    header("Location: index.php?error=user_not_found");
     exit();
 }
 

@@ -1,3 +1,51 @@
+<?php
+// Handle form submission at the top of the page
+$submitted = false;
+$success = false;
+
+// Include your database connection
+include 'includes/db_config.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    // Create connection
+    $conn = new mysqli($host, $username, $password, $dbname);
+
+    // Check connection
+    if ($conn->connect_error) {
+        $submitted = true;
+        $success = false;
+    } else {
+        // Retrieve and sanitize form data
+        $full_name = $conn->real_escape_string($_POST['full_name']);
+        $email = $conn->real_escape_string($_POST['email']);
+
+        // Default values for other required fields
+        $tour_name = "10 DAYS SAFARI AND ZANZIBAR ISLAND GIRLS TRIP";       
+        $arrival_date = date('Y-m-d');      
+        $number_of_adults = 1;              
+        $number_of_children = 0;         
+        $special_requests = NULL;      
+        $tour_details = NULL;           
+
+        // Prepare SQL insert
+        $stmt = $conn->prepare("INSERT INTO booking (tour_name, tour_details, full_name, email, arrival_date, number_of_adults, number_of_children, special_requests) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("sssssiis", $tour_name, $tour_details, $full_name, $email, $arrival_date, $number_of_adults, $number_of_children, $special_requests);
+
+        if ($stmt->execute()) {
+            $success = true;
+        } else {
+            $success = false;
+        }
+
+        $submitted = true;
+        $stmt->close();
+        $conn->close();
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,6 +76,9 @@
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
         <link href="css/new.css" rel="stylesheet">
+        <!-- SweetAlert2 -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     </head>
 
     <body>
@@ -411,16 +462,15 @@
             Our team will contact you with next steps.
           </p>
 
-          <!-- Simple Booking Form -->
           <form action="#" method="post">
             <div class="mb-3">
               <label class="form-label fw-semibold">Full Name</label>
-              <input type="text" class="form-control" placeholder="Enter your full name" required>
+              <input type="text" class="form-control" name="full_name" placeholder="Enter your full name" required>
             </div>
 
             <div class="mb-3">
               <label class="form-label fw-semibold">Email Address</label>
-              <input type="email" class="form-control" placeholder="Enter your email" required>
+              <input type="email" class="form-control" name="email" placeholder="Enter your email" required>
             </div>
 
             <button type="submit" class="btn btn-primary w-100 py-2">
@@ -428,9 +478,27 @@
             </button>
           </form>
 
-          <small class="text-muted d-block mt-3">
-            * Your booking is confirmed once the deposit is received.
-          </small>
+          <?php if ($submitted): ?>
+            <script>
+                <?php if ($success): ?>
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Booking Successful!',
+                        text: 'Your request has been submitted. We will contact you soon.',
+                        confirmButtonColor: '#3085d6'
+                    });
+                <?php else: ?>
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Booking Failed!',
+                        text: 'Something went wrong. Please try again.',
+                        confirmButtonColor: '#d33'
+                    });
+                <?php endif; ?>
+            </script>
+            <?php endif; ?>
+
+
 
         </div>
       </div>

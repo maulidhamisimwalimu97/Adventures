@@ -8,6 +8,6 @@ $_SESSION = array();
 session_destroy();
 
 // Redirect to login with a success message
-header("Location: login.php?message=logged_out");
+header("Location: index.php?message=logged_out");
 exit();
 ?>
