@@ -1282,3 +1282,120 @@ body {
     padding-right: 2rem;
   }
 }
+
+
+body {
+  font-family: "Inter", sans-serif;
+  background: #f3f4f6;
+  color: #111827;
+}
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: white;
+  padding: 90px 0;
+}
+
+.hero h1 {
+  font-weight: 800;
+  max-width: 800px;
+  margin: auto;
+}
+
+.hero-sub {
+  opacity: 0.9;
+}
+
+.trip-badge {
+  background: rgba(255,255,255,0.15);
+  padding: 8px 16px;
+  border-radius: 30px;
+}
+
+/* CONTENT */
+.trip-wrapper {
+  max-width: 950px;
+  margin-top: -60px;
+}
+
+.trip-card {
+  background: white;
+  border-radius: 18px;
+  padding: 30px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+  margin-bottom: 24px;
+}
+
+.trip-card h3, .trip-card h4 {
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+/* LISTS */
+.check-list li::before {
+  content: "✓";
+  color: #2563eb;
+  margin-right: 10px;
+}
+
+.x-list li::before {
+  content: "✕";
+  color: #dc2626;
+  margin-right: 10px;
+}
+
+.check-list li,
+.x-list li {
+  list-style: none;
+  margin-bottom: 10px;
+}
+
+/* ITINERARY */
+.day {
+  padding: 18px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.day:last-child {
+  border-bottom: none;
+}
+
+.day h5 {
+  font-weight: 600;
+}
+
+/* PRICING */
+.pricing .price {
+  font-size: 2.2rem;
+  font-weight: 800;
+}
+
+.pricing span {
+  font-size: 1rem;
+  color: #6b7280;
+}
+
+/* BUTTON */
+.btn-primary {
+  background: #2563eb;
+  border-radius: 14px;
+  font-weight: 600;
+  padding: 14px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero {
+    padding: 60px 20px;
+  }
+
+  .trip-wrapper {
+    margin-top: -40px;
+    padding: 0 15px;
+  }
+
+  .pricing .price {
+    font-size: 1.8rem;
+  }
+}
