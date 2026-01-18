@@ -127,8 +127,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                <!-- Price CTA -->
               <div class="d-flex align-items-center ms-lg-3">
                   <div class="text-end me-3">
-                      <div class="fw-bold text-danger fs-5">$1,375</div>
-                      <small class="text-danger">Deposit: $250</small>
+                      <div class="fw-bold text-danger fs-5">$1,800</div>
+                      <small class="text-danger">Deposit: $150</small>
                   </div>
               </div>
 
@@ -153,7 +153,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         </div>
         <!-- Header End -->
-          <!-- About Start -->
+          <<!-- About Start -->
 <div class="container-fluid py-5">
     <div class="container py-5">
         <div class="row g-5 align-items-center">
@@ -165,6 +165,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <!-- Date Badge -->
                     <div class="position-absolute top-0 start-0 bg-primary text-white px-4 py-2 rounded-end">
                         <strong>Feb 19 – Feb 28, 2026</strong><br>
+                        <strong>Jun 14 – Jun 23, 2026</strong><br>
                         <small>10 Days / 9 Nights</small>
                     </div>
 
@@ -185,9 +186,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <span class="badge bg-primary me-3 mb-2">
                         📅 Feb 19 – Feb 28, 2026
                     </span>
+
+                    <span class="badge bg-primary me-3 mb-2">
+                        📅 Jun 14 – Jun 23, 2026
+                    </span>
+
                     <span class="badge bg-secondary me-3 mb-2">
                         ⏳ 10 Days / 9 Nights
                     </span>
+
                     <span class="badge bg-light text-dark mb-2">
                         📍 Tanzania & Zanzibar
                     </span>
@@ -195,24 +202,45 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <p class="mb-4">
                     Get ready for an unforgettable <strong>10-day Girls’ Trip through Tanzania & Zanzibar</strong>,
-                    happening from <strong>February 19 to February 28, 2026</strong>. This journey blends thrilling
-                    wildlife safaris in Mikumi National Park with breathtaking white-sand beaches, rich culture,
+                    happening from 
+                    <strong>February 19 to February 28, 2026</strong> 
+                    and 
+                    <strong>June 14 to June 23, 2026</strong>. 
+                    This journey blends thrilling wildlife safaris in Mikumi National Park with breathtaking white-sand beaches, rich culture,
                     island adventures, and deep sisterhood connections.
                 </p>
 
+
                 <div class="row gy-4 align-items-center">
+
+                   <div class="row gy-4 align-items-center">
 
                     <!-- Feature 1 -->
                     <div class="col-12 col-sm-6 d-flex align-items-center">
-                        <i class="fas fa-binoculars fa-3x text-secondary"></i>
-                        <h5 class="ms-4">Safari & Wildlife Experiences</h5>
+                        <img src="img/w3.jpeg" alt="Safari & Wildlife Experiences"
+                            class="img-fluid rounded"
+                            style="width:120px; height:120px; object-fit:cover;">
+                        <h5 class="ms-4 mb-0">Safari & Wildlife Experiences</h5>
                     </div>
 
                     <!-- Feature 2 -->
                     <div class="col-12 col-sm-6 d-flex align-items-center">
-                        <i class="fas fa-ship fa-3x text-secondary"></i>
-                        <h5 class="ms-4">Zanzibar Island & Boat Adventures</h5>
+                        <img src="img/4b.jpeg" alt="Zanzibar Island & Boat Adventures"
+                            class="img-fluid rounded"
+                            style="width:120px; height:120px; object-fit:cover;">
+                        <h5 class="ms-4 mb-0">Zanzibar Island & Boat Adventures</h5>
                     </div>
+
+                    <!-- Feature 3 -->
+                    <div class="col-12 col-sm-6 d-flex align-items-center">
+                        <img src="img/g3.jpeg" alt="Maasai Village Cultural Experience"
+                            class="img-fluid rounded"
+                            style="width:120px; height:120px; object-fit:cover;">
+                        <h5 class="ms-4 mb-0">Maasai Village Cultural Experience</h5>
+                    </div>
+
+                </div>
+
 
                     <!-- Stats -->
                     <div class="col-4 col-md-3">
@@ -246,6 +274,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <!-- Inclusions & Exclusions -->
                 <div class="row g-4 mt-3" id="included">
+
                     <!-- Inclusions -->
                     <div class="col-md-6">
                         <div class="bg-light rounded p-4 h-100">
@@ -289,7 +318,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </a>
                     </div>
 
-                    
                     <div class="d-flex flex-column justify-content-center">
                         <span class="text-primary">Ready to join the ultimate Girls’ Trip?</span>
                         <span class="text-secondary fw-bold fs-5" style="letter-spacing: 2px;">
@@ -298,7 +326,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                 </div>
 
-                
             </div>
         </div>
     </div>
@@ -307,131 +334,147 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!-- Itinerary Start -->
 <div class="container-fluid py-5" id="itinerary">
-    <div class="container">
+  <div class="container">
 
-        <div class="text-center mb-5">
-            <h5 class="sub-title text-primary px-3">Trip Itinerary</h5>
-            <h2 class="fw-bold">Day-by-Day Experience</h2>
-            <p class="text-muted">
-                A carefully curated journey blending safari adventure, island relaxation,
-                culture, and sisterhood.
-            </p>
-        </div>
-
-        <div class="row g-4">
-
-            <!-- Day 1 -->
-            <div class="col-md-6">
-                <div class="bg-light rounded p-4 h-100">
-                    <h5 class="fw-bold text-primary">Day 1 – Arrival in Tanzania</h5>
-                    <p class="mb-0 text-muted">
-                        Arrival at Julius Nyerere International Airport. Warm welcome,
-                        transfer to hotel, trip briefing, and welcome dinner.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Day 2 -->
-            <div class="col-md-6">
-                <div class="bg-light rounded p-4 h-100">
-                    <h5 class="fw-bold text-primary">Day 2 – Mikumi National Park</h5>
-                    <p class="mb-0 text-muted">
-                        Scenic drive to Mikumi National Park. Afternoon game drive
-                        spotting elephants, lions, giraffes, and more.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Day 3 -->
-            <div class="col-md-6">
-                <div class="bg-light rounded p-4 h-100">
-                    <h5 class="fw-bold text-primary">Day 3 – Full Safari Experience</h5>
-                    <p class="mb-0 text-muted">
-                        Full-day game drive with picnic lunch. Cultural experience
-                        and sunset relaxation at the lodge.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Day 4 -->
-            <div class="col-md-6">
-                <div class="bg-light rounded p-4 h-100">
-                    <h5 class="fw-bold text-primary">Day 4 – Zanzibar Flight</h5>
-                    <p class="mb-0 text-muted">
-                        Morning transfer and flight to Zanzibar.
-                        Beach resort check-in and leisure evening.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Day 5 -->
-            <div class="col-md-6">
-                <div class="bg-light rounded p-4 h-100">
-                    <h5 class="fw-bold text-primary">Day 5 – Stone Town & Prison Island</h5>
-                    <p class="mb-0 text-muted">
-                        Explore historic Stone Town, Prison Island giant tortoises,
-                        and Nakupenda sandbank.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Day 6 -->
-            <div class="col-md-6">
-                <div class="bg-light rounded p-4 h-100">
-                    <h5 class="fw-bold text-primary">Day 6 – Safari Blue Experience</h5>
-                    <p class="mb-0 text-muted">
-                        Full-day Safari Blue adventure: snorkeling, dhow sailing,
-                        seafood lunch, and island hopping.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Day 7 -->
-            <div class="col-md-6">
-                <div class="bg-light rounded p-4 h-100">
-                    <h5 class="fw-bold text-primary">Day 7 – Free Day & Sisterhood</h5>
-                    <p class="mb-0 text-muted">
-                        Relaxation, beach time, spa, photoshoots,
-                        and bonding activities.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Day 8 -->
-            <div class="col-md-6">
-                <div class="bg-light rounded p-4 h-100">
-                    <h5 class="fw-bold text-primary">Day 8 – Mnemba Island Snorkeling</h5>
-                    <p class="mb-0 text-muted">
-                        Crystal-clear waters, marine life snorkeling,
-                        and unforgettable island moments.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Day 9 -->
-            <div class="col-md-6">
-                <div class="bg-light rounded p-4 h-100">
-                    <h5 class="fw-bold text-primary">Day 9 – Farewell Dinner</h5>
-                    <p class="mb-0 text-muted">
-                        Final beach day, shopping, sunset cruise,
-                        and farewell celebration dinner.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Day 10 -->
-            <div class="col-md-6">
-                <div class="bg-light rounded p-4 h-100">
-                    <h5 class="fw-bold text-primary">Day 10 – Departure</h5>
-                    <p class="mb-0 text-muted">
-                        Breakfast, check-out, airport transfer,
-                        and departure with unforgettable memories.
-                    </p>
-                </div>
-            </div>
-
-        </div>
+    <div class="text-center mb-5">
+      <h5 class="sub-title text-primary px-3">Trip Itinerary</h5>
+      <h2 class="fw-bold">Day-by-Day Experience</h2>
     </div>
+
+    <div class="row g-4">
+
+      <!-- Feb 19 -->
+      <div class="col-md-6">
+        <div class="bg-light rounded p-4 h-100">
+          <h5 class="fw-bold text-primary">Feb 19, 2026 – Arrival in Dar Es Salaam</h5>
+          <ul class="text-muted mb-0">
+            <li>Airport pick-up and transfer to hotel</li>
+            <li>Check-in and relaxation</li>
+            <li>Casual evening, dinner à la carte</li>
+            <li><strong>Accommodation:</strong> Crown Plaza</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Feb 20 -->
+      <div class="col-md-6">
+        <div class="bg-light rounded p-4 h-100">
+          <h5 class="fw-bold text-primary">Feb 20 – Mikumi National Park</h5>
+          <ul class="text-muted mb-0">
+            <li>7:00 am pick-up and train to Morogoro (1.5 hrs)</li>
+            <li>Drive to Mikumi National Park</li>
+            <li>Full-day game drive with lunch inside the park</li>
+            <li>Sunset drive to lodge</li>
+            <li><strong>Accommodation:</strong> Camp Bastian (Dinner included)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Feb 21 -->
+      <div class="col-md-6">
+        <div class="bg-light rounded p-4 h-100">
+          <h5 class="fw-bold text-primary">Feb 21 – Full Day Game Drive</h5>
+          <ul class="text-muted mb-0">
+            <li>6:15 am early breakfast</li>
+            <li>7:00 am full-day game drive in Mikumi</li>
+            <li>Lunch inside the park</li>
+            <li>Evening return to lodge</li>
+            <li><strong>Accommodation:</strong> Camp Bastian (Dinner included)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Feb 22 -->
+      <div class="col-md-6">
+        <div class="bg-light rounded p-4 h-100">
+          <h5 class="fw-bold text-primary">Feb 22 – Maasai Village & Back to Dar</h5>
+          <ul class="text-muted mb-0">
+            <li>Breakfast and check-out</li>
+            <li>Visit Maasai Village cultural experience</li>
+            <li>Train from Morogoro to Dar Es Salaam</li>
+            <li>Relax at beachside hotel</li>
+            <li><strong>Accommodation:</strong> Crown Plaza</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Feb 23 -->
+      <div class="col-md-6">
+        <div class="bg-light rounded p-4 h-100">
+          <h5 class="fw-bold text-primary">Feb 23 – Dar Es Salaam to Zanzibar</h5>
+          <ul class="text-muted mb-0">
+            <li>Breakfast at hotel</li>
+            <li>Transfer to ferry terminal</li>
+            <li>Ferry ride to Zanzibar</li>
+            <li>Hotel check-in & relaxation</li>
+            <li><strong>Accommodation:</strong> Crystal Beach Nungwi</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Feb 24 -->
+      <div class="col-md-6">
+        <div class="bg-light rounded p-4 h-100">
+          <h5 class="fw-bold text-primary">Feb 24 – Prison Island | Nakupenda | Stone Town</h5>
+          <ul class="text-muted mb-0">
+            <li>Stone Town walking tour (2–3 hrs)</li>
+            <li>Boat ride to Prison Island & giant tortoises</li>
+            <li>Nakupenda Sandbank & seafood BBQ lunch</li>
+            <li><strong>Accommodation:</strong> Crystal Beach Nungwi (Lunch included)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Feb 25 -->
+      <div class="col-md-6">
+        <div class="bg-light rounded p-4 h-100">
+          <h5 class="fw-bold text-primary">Feb 25 – Safari Blue or Mnemba Island</h5>
+          <ul class="text-muted mb-0">
+            <li>Full-day ocean adventure</li>
+            <li>Dhow cruise, snorkeling & sandbank visit</li>
+            <li>Seafood lunch & mangrove lagoon</li>
+            <li><strong>Accommodation:</strong> Crystal Beach Nungwi (Lunch included)</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Feb 26 -->
+      <div class="col-md-6">
+        <div class="bg-light rounded p-4 h-100">
+          <h5 class="fw-bold text-primary">Feb 26 – Leisure Day</h5>
+          <ul class="text-muted mb-0">
+            <li>Free day to relax or explore Zanzibar</li>
+            <li><strong>Accommodation:</strong> Crystal Beach Nungwi</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Feb 27 -->
+      <div class="col-md-6">
+        <div class="bg-light rounded p-4 h-100">
+          <h5 class="fw-bold text-primary">Feb 27 – Maalum Caves & The Rock Restaurant</h5>
+          <ul class="text-muted mb-0">
+            <li>Maalum Caves exploration</li>
+            <li>Lunch at The Rock Restaurant</li>
+            <li><strong>Accommodation:</strong> Crystal Beach Nungwi</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Feb 28 -->
+      <div class="col-md-6">
+        <div class="bg-light rounded p-4 h-100">
+          <h5 class="fw-bold text-primary">Feb 28 – Departure</h5>
+          <ul class="text-muted mb-0">
+            <li>Souvenir shopping</li>
+            <li>Transfer to airport</li>
+            <li>Departure from Zanzibar</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>
 <!-- Itinerary End -->
 
@@ -448,19 +491,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
           <!-- Price -->
           <div class="mb-3">
-            <h2 class="fw-bold text-dark">$1,375</h2>
-            <p class="mb-1 text-muted">Per person (Double Occupancy)</p>
-            <span class="badge bg-secondary">
-              Deposit Required: <strong>$250</strong>
-            </span>
-          </div>
+            <h2 class="fw-bold text-dark">$1,800</h2>
+            <p class="text-muted">
+              <strong>Double Occupancy:</strong><br>
+              $1,800 per person (Two people sharing a room with two beds)<br>
+              <strong>Deposit:</strong> $150 (required to secure your spot)
+            </p>
 
-          <hr>
+            <p class="text-muted">
+              <strong>Payment Schedule:</strong><br>
+              Deposit at registration, balance in 2 installments.<br>
+              Full payment due by <strong>Feb 19, 2026</strong>.
+            </p>
 
-          <p class="text-muted mb-3">
-            Secure your spot by submitting your details below.  
-            Our team will contact you with next steps.
-          </p>
+            <p class="text-muted">
+              <strong>Cancellation & Refund Policy:</strong><br>
+              All cancellations must be submitted in writing to
+              <strong>info@auntieveeadventure.com</strong>.
+            </p>
+
+            <p class="text-muted">
+              <strong>Additional Information:</strong><br>
+              WhatsApp group will be created for all attendees.<br>
+              Arrival: Dar Es Salaam (Feb 19, 2026)<br>
+              Departure: Zanzibar (Feb 28, 2026)
+            </p>
 
           <form action="#" method="post">
             <div class="mb-3">
@@ -502,6 +557,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         </div>
       </div>
+                  </div>
 
       <!-- ORGANIZER CARD -->
       <div class="col-lg-4">

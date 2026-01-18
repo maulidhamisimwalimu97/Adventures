@@ -666,7 +666,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </p>
 
     <div class="text-center mt-4">
-      <a href="4days.php" class="btn btn-primary px-5">
+      <a href="10 DAYS SAFARI AND ZANZIBAR ISLAND GIRLS TRIP.php" class="btn btn-primary px-5">
         View Full Trip Details & Register →
       </a>
     </div>
